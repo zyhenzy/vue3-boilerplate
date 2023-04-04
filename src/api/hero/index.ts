@@ -1,9 +1,39 @@
 import request from "@/utils/request";
-import type {Hero} from "@/api/hero/data";
+import type {IHero,IHeroCreate,IHeroUpdate} from "@/api/hero/data";
+
+/**
+ * 新增英雄
+ */
+export const requestHeroCreate = (params:IHeroCreate)=>{
+  return request.post('/hero',params)
+}
+
+/**
+ * 删除英雄
+ * @param id
+ */
+export const requestHeroDelete = (id:string)=>{
+  return request.delete(`/hero/${id}`)
+}
+
+/**
+ * 修改英雄
+ */
+export const requestHeroUpdate = (params:IHeroUpdate)=>{
+  return request.put('/hero',params)
+}
 
 /**
  * 获取英雄列表
  */
-export const getHeroList = () => {
-  return request.get<Hero[]>('/heroList')
+export const requestHeroList = () => {
+  return request.get<IHero[]>('/heroList')
+}
+
+/**
+ * 获取英雄详情
+ * @param id
+ */
+export const requestHeroById = (id:string) => {
+  return request.get<IHero>(`/hero/${id}`)
 }
