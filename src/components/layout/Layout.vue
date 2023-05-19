@@ -1,41 +1,42 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import type { RouteRecordRaw } from 'vue-router'
-import router from '@/router'
+import { computed, ref } from "vue";
+import type { RouteRecordRaw } from "vue-router";
+import router from "@/router";
+import { Menu, useUserStore } from "@/stores/user";
 
-const selectedKeys = ref<string[]>(['2'])
-const menuList = ref<RouteRecordRaw[]>([])
+const userStore = useUserStore();
+const selectedKeys = ref<string[]>(["2"]);
 
-onMounted(() => {
-  const routes = router.options.routes
-  const [layoutRoute] = routes.filter((i) => i.name === 'layout')
-  menuList.value = layoutRoute.children as RouteRecordRaw[]
-})
+const menuList = computed(() => {
+  return userStore.getMenus;
+});
 
 const handleRouter = (menu: RouteRecordRaw) => {
-  router.push(menu.path)
-}
+  router.push(menu.path);
+};
 
-const handlePage1 = ()=>{
-  router.push('/page1')
-}
+const logout = () => {
+  userStore.logout();
+  router.replace("/login");
+};
 </script>
 
 <template>
   <a-layout class="layout">
-    <a-layout-header>
+    <a-layout-header class="layout-header">
       <div class="logo" />
       <a-menu
+        style="flex-grow: 1"
         v-model:selectedKeys="selectedKeys"
         theme="dark"
         mode="horizontal"
-        :style="{ lineHeight: '64px' }"
       >
         <a-menu-item v-for="(menu, index) in menuList" :key="index" @click="handleRouter(menu)">{{
-          menu.name
-        }}</a-menu-item>
-        <a-menu-item @click="handlePage1" key="page1">page1</a-menu-item>
+            menu.name
+          }}
+        </a-menu-item>
       </a-menu>
+      <a-button @click="logout">登出</a-button>
     </a-layout-header>
     <a-layout-content class="layout-content">
       <a-breadcrumb style="margin: 16px 0">
@@ -58,17 +59,23 @@ const handlePage1 = ()=>{
   display: flex;
   flex-direction: column;
   height: 100vh;
+
   .layout-content {
     flex-grow: 1;
     padding: 0 50px;
     display: flex;
     flex-direction: column;
+
     .content {
       background: #fff;
       padding: 24px;
       min-height: 280px;
       flex-grow: 1;
     }
+  }
+
+  .layout-header {
+    display: flex;
   }
 }
 </style>

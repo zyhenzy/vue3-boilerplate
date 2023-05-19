@@ -29,6 +29,11 @@ const initRoutes:RouteRecordRaw[] = [
     }
   },
   {
+    // 404页面配置
+    path: '/:catchAll(.*)',
+    component: () => import('../views/ErrorView.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting

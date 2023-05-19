@@ -1,8 +1,8 @@
-import router from "./router";
+import router from "../router";
 import type { IRoute } from "@/api/permission/data";
 import type { RouteRecordRaw } from "vue-router";
 
-const loadView = import.meta.glob('./views/*.vue')
+const loadView = import.meta.glob('../views/*.vue')
 
 /**
  * 添加路由配置
@@ -13,8 +13,8 @@ export const addRoutes = (routes:IRoute[])=>{
     const _route:RouteRecordRaw={
       name:routeObj.name,
       path:routeObj.path,
-      component:loadView[`./views/${routeObj.component}.vue`]
+      component:loadView[`../views/${routeObj.component}.vue`]
     }
-    router.addRoute(_route)
+    router.addRoute('layout',_route)
   })
 }
