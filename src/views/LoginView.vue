@@ -13,14 +13,14 @@ const userStore = useUserStore()
 
 const formState = reactive<FormState>({
   username: 'admin',
-  password: '123456',
+  password: '1',
   remember: true,
 });
 
 const onFinish = async () => {
   const {username,password} = formState
   await userStore.login({username,password})
-  await router.push('/home')
+  await router.push('/')
 };
 
 const onFinishFailed = () => {

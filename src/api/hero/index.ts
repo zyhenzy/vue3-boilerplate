@@ -1,3 +1,13 @@
+/**
+ * @Name: 
+ * @Description: 
+ * @Author: ying.zhang_zhang
+ * @Date: 2023/4/10 16:48
+ * @LastEditors: ying.zhang_zhang
+ * @LastEditTime: 2023/4/10 16:48
+ * @Url: src/api/hero/index.ts
+ */
+
 import request from "@/utils/request";
 import type {IHero,IHeroCreate,IHeroUpdate} from "@/api/hero/data";
 

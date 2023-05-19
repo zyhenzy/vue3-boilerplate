@@ -15,6 +15,10 @@ onMounted(() => {
 const handleRouter = (menu: RouteRecordRaw) => {
   router.push(menu.path)
 }
+
+const handlePage1 = ()=>{
+  router.push('/page1')
+}
 </script>
 
 <template>
@@ -30,6 +34,7 @@ const handleRouter = (menu: RouteRecordRaw) => {
         <a-menu-item v-for="(menu, index) in menuList" :key="index" @click="handleRouter(menu)">{{
           menu.name
         }}</a-menu-item>
+        <a-menu-item @click="handlePage1" key="page1">page1</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content class="layout-content">
