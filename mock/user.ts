@@ -14,9 +14,7 @@ const mockList: MockMethod[] = [
                     code: 200,
                     message: '登录成功',
                     data: {
-                        user: {name: '小明', age: 18, username, password},
                         token: 'token1',
-                        routes:permissions1
                     },
                 }
             }else if(username==='root'&&password==='1'){
@@ -25,9 +23,7 @@ const mockList: MockMethod[] = [
                     code: 200,
                     message: '登录成功',
                     data: {
-                        user: {name: '小红', age: 20, username, password},
                         token: 'token2',
-                        routes:permissions2
                     },
                 }
             }else{

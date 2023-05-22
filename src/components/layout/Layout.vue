@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from 'vue'
 import {
   UserOutlined,
   MenuUnfoldOutlined,
@@ -7,7 +7,9 @@ import {
   DownOutlined,
 } from "@ant-design/icons-vue";
 import router from "@/router";
-import { Menu, useUserStore } from "@/stores/user";
+import { useUserStore } from "@/stores/user";
+import type { IRoute } from '@/api/user/data'
+import { useRoute } from 'vue-router'
 
 const userStore = useUserStore();
 const selectedKeys = ref<string[]>([""]);
@@ -19,10 +21,14 @@ const menuList = computed(() => {
 
 const user = computed(() => userStore.state.user || {});
 
-const handleMenuClick = (menu: Menu) => {
+onMounted(()=>{
+  const currentRoute = useRoute();
+  selectedKeys.value = [currentRoute.name]
+})
+
+const handleMenuClick = (menu: IRoute) => {
   router.push(menu.path);
 };
-
 
 const handleLogout = () => {
   userStore.logout();

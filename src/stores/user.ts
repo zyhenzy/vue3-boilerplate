@@ -4,45 +4,29 @@ import { getSession, postLogin } from "@/api/user";
 import { clearToken, setToken } from "@/utils/token";
 import type { IRoute } from "@/api/user/data";
 import { addRoutes } from "@/utils/perssions";
-import router from "@/router";
-import type { RouteRecordRaw } from "vue-router";
-
-export interface Menu {
-  name: string;
-  path: string;
-}
+import { BaseRoute } from '@/constants/config/config.routes'
 
 export interface UserState {
   user: any,
   token: string,
-  routes: IRoute[],
+  asyncRoutes: IRoute[], // 动态路由
 }
 
 export const useUserStore = defineStore("user", () => {
   const state = reactive<UserState>({
     user: {},
     token: "",
-    routes: [],
+    asyncRoutes: [], // 动态路由
   });
 
   const logged = computed(() => !!state.token);
-  const gotRoutes = computed(() => state.routes.length > 0);
+  const gotRoutes = computed(() => state.asyncRoutes.length > 0);
 
   /**
-   * 静态路由与动态路由匹配
+   * 静态路由与动态路由组合成菜单
    */
   const getMenus = computed(() => {
-    let baseMenus: Menu[] = [];
-    const routes = router.options.routes;
-    const [layoutRoute] = routes.filter((i) => i.name === "layout");
-    const layoutChildren = layoutRoute.children as RouteRecordRaw[];
-    baseMenus = layoutChildren.map(route => {
-      return { name: route.name as string, path: route.path };
-    });
-    const asyncMenus = state.routes.map(route => {
-      return { name: route.name, path: route.path };
-    });
-    return [...baseMenus, ...asyncMenus];
+    return [...BaseRoute, ...state.asyncRoutes];
   });
 
   /**
@@ -57,11 +41,9 @@ export const useUserStore = defineStore("user", () => {
     try {
       const response = await postLogin({ username, password });
       if (response) {
-        state.user = response.data.user;
         state.token = response.data.token;
-        state.routes = response.data.routes;
-        addRoutes(state.routes);
         setToken(state.token);
+        await fetchSession()
       }
       return Promise.resolve(true);
     } catch (error) {
@@ -75,18 +57,22 @@ export const useUserStore = defineStore("user", () => {
   async function logout() {
     state.user = {};
     state.token = "";
-    state.routes = [];
+    state.asyncRoutes = [];
     clearToken();
   }
 
+  /**
+   * 获取session
+   * 用户信息、动态路由等
+   */
   async function fetchSession() {
     try {
       const response = await getSession();
       if (response) {
         state.user = response.data.user;
         state.token = response.data.token;
-        state.routes = response.data.routes;
-        addRoutes(state.routes);
+        state.asyncRoutes = response.data.routes;
+        addRoutes(state.asyncRoutes);
         setToken(state.token);
       }
       return Promise.resolve(true);
