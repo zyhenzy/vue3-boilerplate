@@ -16,7 +16,6 @@ export interface UserState {
   user: any,
   token: string,
   routes: IRoute[],
-  menus: Menu[]
 }
 
 export const useUserStore = defineStore("user", () => {
@@ -24,7 +23,6 @@ export const useUserStore = defineStore("user", () => {
     user: {},
     token: "",
     routes: [],
-    menus: []
   });
 
   const logged = computed(() => !!state.token);

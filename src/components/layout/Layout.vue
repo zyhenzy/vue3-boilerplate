@@ -1,81 +1,124 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import type { RouteRecordRaw } from "vue-router";
+import {
+  UserOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  DownOutlined,
+} from "@ant-design/icons-vue";
 import router from "@/router";
 import { Menu, useUserStore } from "@/stores/user";
 
 const userStore = useUserStore();
-const selectedKeys = ref<string[]>(["2"]);
+const selectedKeys = ref<string[]>([""]);
+const collapsed = ref<boolean>(false); // 收起状态
 
 const menuList = computed(() => {
   return userStore.getMenus;
 });
 
-const handleRouter = (menu: RouteRecordRaw) => {
+const user = computed(() => userStore.state.user || {});
+
+const handleMenuClick = (menu: Menu) => {
   router.push(menu.path);
 };
 
-const logout = () => {
+
+const handleLogout = () => {
   userStore.logout();
   router.replace("/login");
 };
 </script>
 
 <template>
-  <a-layout class="layout">
-    <a-layout-header class="layout-header">
-      <div class="logo" />
-      <a-menu
-        style="flex-grow: 1"
-        v-model:selectedKeys="selectedKeys"
-        theme="dark"
-        mode="horizontal"
-      >
-        <a-menu-item v-for="(menu, index) in menuList" :key="index" @click="handleRouter(menu)">{{
-            menu.name
-          }}
+  <a-layout style="min-height: 100vh">
+    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
+      <div class="layout-header_logo" />
+      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+        <a-menu-item
+          :key="menu.name"
+          v-for="menu in menuList"
+          @click="handleMenuClick(menu)"
+        >
+          <user-outlined />
+          <span>{{ menu.meta ? menu.meta.name : menu.name }}</span>
         </a-menu-item>
       </a-menu>
-      <a-button @click="logout">登出</a-button>
-    </a-layout-header>
-    <a-layout-content class="layout-content">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
-      <div class="content">
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header class="app-idp_layout_header">
+        <menu-unfold-outlined
+          v-if="collapsed"
+          class="layout-menu_trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+        <menu-fold-outlined
+          v-else
+          class="layout-menu_trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+        <div class="vab-avatar">
+          <a-dropdown>
+            <span class="ant-dropdown-link">
+              <a-avatar src="/src/assets/icon/coder.png" />
+              <!--              <a-avatar :src="user.avatar_url" />-->
+              {{ user.name }}
+              <DownOutlined />
+            </span>
+            <template v-slot:overlay>
+              <a-menu>
+                <a-menu-item @click="handleLogout">退出登录</a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+        </div>
+      </a-layout-header>
+      <a-layout-content
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
+      >
         <router-view />
-      </div>
-    </a-layout-content>
-    <a-layout-footer style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
-    </a-layout-footer>
+      </a-layout-content>
+    </a-layout>
   </a-layout>
 </template>
 
 <style scoped lang="scss">
-.layout {
+.app-idp_layout_header {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px 0 0 !important;
+  background: #fff !important;
+}
+.layout-menu_trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
 
-  .layout-content {
-    flex-grow: 1;
-    padding: 0 50px;
-    display: flex;
-    flex-direction: column;
+.layout-menu_trigger:hover {
+  color: #1890ff;
+}
 
-    .content {
-      background: #fff;
-      padding: 24px;
-      min-height: 280px;
-      flex-grow: 1;
-    }
-  }
+.layout-header_logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 16px;
+}
 
-  .layout-header {
-    display: flex;
-  }
+.vab-avatar {
+}
+
+.ant-dropdown-link {
+  display: block;
+  min-height: 64px;
+  cursor: pointer;
 }
 </style>
