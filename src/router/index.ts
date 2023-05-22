@@ -1,12 +1,15 @@
-import { createRouter, createWebHistory } from "vue-router";
-import type { RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 import LoginView from '../views/login/LoginView.vue'
 import HomeView from '../views/HomeView.vue'
 import Layout from '../components/layout/Layout.vue'
-import createRouterGuards from "@/router/guards";
+import createRouterGuards from '@/router/guards'
 import { BaseRoute } from '@/constants/config/config.routes'
 
-const initRoutes:RouteRecordRaw[] = [
+const REDIRECT_NAME = 'Dashboard' // 重定向路由
+
+const initRoutes: RouteRecordRaw[] = [
+  { path: '/', redirect: { name: REDIRECT_NAME } },
   {
     path: '/',
     name: 'layout',
@@ -26,7 +29,7 @@ const initRoutes:RouteRecordRaw[] = [
     component: LoginView,
     meta: {
       name: '登陆',
-      excludeAuth: true,
+      excludeAuth: true
     }
   },
   {
