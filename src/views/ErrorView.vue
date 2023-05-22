@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 
 onMounted(()=>{
-  console.log('page1 in');
+  console.log('404');
 })
 </script>
 

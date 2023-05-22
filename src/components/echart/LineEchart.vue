@@ -1,48 +1,45 @@
-<script setup lang="ts">
-import BaseEchart from "./BaseEchart.vue";
-import { ref } from "vue";
-import * as echarts from "echarts";
+<script setup lang='ts'>
+import BaseEchart from './BaseEchart.vue'
+import { computed } from 'vue'
+import type * as echarts from 'echarts'
 
-let option = ref<echarts.EChartsCoreOption>({
-  xAxis: {
-    type: "category",
-    data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-  },
-  yAxis: {
-    type: "value",
-  },
-  series: [
-    {
-      data: [150, 230, 224, 218, 135, 147, 260],
-      type: "line",
-    },
-  ],
-});
+export interface LineChartProps {
+  startDate: string, // 起始时间
+  endDate: string // 结束时间
+  data: number[] // 数据
+}
 
-setTimeout(() => {
-  option.value = {
+const props = withDefaults(defineProps<LineChartProps>(), {
+  monthRange: () => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], // 月份范围
+  data: () => [150, 230, 224, 218, 135, 147, 260] // 数据
+})
+
+/**
+ * echarts options
+ */
+const options = computed((): echarts.EChartsCoreOption => {
+  return {
     xAxis: {
-      type: "category",
-      boundaryGap: false,
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      type: 'category',
+      data: props.monthRange
     },
     yAxis: {
-      type: "value",
+      type: 'value'
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: "line",
-        areaStyle: {},
-      },
-    ],
-  };
-}, 2000);
+        data: props.data,
+        type: 'line'
+      }
+    ]
+  }
+})
+
 </script>
 
 <template>
-  <div class="line-chart">
-    <base-echart :option="option" />
+  <div class='line-chart'>
+    <base-echart :option='options' width='100%' height='auto' />
   </div>
 </template>
 

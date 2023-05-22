@@ -1,8 +1,11 @@
 import type{ IRoute } from '@/api/user/data'
 import DashboardView from '@/views/dashboard/DashboardView.vue'
-import ChartView from '@/views/ChartView.vue'
+import ChartView from '@/views/chart/ChartView.vue'
 import HeroView from '@/views/HeroView.vue'
 
+/**
+ * 基础路由（左侧菜单）
+ */
 export const BaseRoute:IRoute[] = [
   {
     path: '/dashboard',
