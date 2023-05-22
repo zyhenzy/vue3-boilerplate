@@ -37,7 +37,7 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <a-layout style="min-height: 100vh">
+  <a-layout style="height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="layout-header_logo" />
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
@@ -51,8 +51,8 @@ const handleLogout = () => {
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
-      <a-layout-header class="app-idp_layout_header">
+    <a-layout class='container'>
+      <a-layout-header class="layout-header">
         <menu-unfold-outlined
           v-if="collapsed"
           class="layout-menu_trigger"
@@ -80,11 +80,13 @@ const handleLogout = () => {
         </div>
       </a-layout-header>
       <a-layout-content
+        class='container-content'
         :style="{
           margin: '24px 16px',
           padding: '24px',
           background: '#fff',
           minHeight: '280px',
+          flex:1,
         }"
       >
         <router-view />
@@ -94,7 +96,16 @@ const handleLogout = () => {
 </template>
 
 <style scoped lang="scss">
-.app-idp_layout_header {
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .container-content{
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+.layout-header {
   display: flex;
   justify-content: space-between;
   align-items: center;

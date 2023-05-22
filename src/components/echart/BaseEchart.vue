@@ -1,5 +1,5 @@
 <template>
-  <div ref="echartRef" :class="props.class" :style="{ width: props.width, height: props.height }"></div>
+  <div ref="echartRef" :class="props.class"></div>
 </template>
 
 <script setup lang="ts">
@@ -11,11 +11,9 @@ import type { Ref } from "vue";
 interface IProps {
   option: echarts.EChartsCoreOption;
   class?: string;
-  width?: string;
-  height?: string;
 }
 
-const props = withDefaults(defineProps<IProps>(), { class: "base-echart", width: "600px", height: "300px" });
+const props = withDefaults(defineProps<IProps>(), { class: "base-echart" });
 
 const echartRef = ref<HTMLElement | null>(null);
 let echartInstance: Ref<echarts.ECharts | null> = ref(null);

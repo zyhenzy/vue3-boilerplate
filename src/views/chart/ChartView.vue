@@ -2,12 +2,12 @@
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons-vue';
 import ChartItem from '../../components/ChartItem.vue'
 import LineEchart from '../../components/echart/LineEchart.vue'
-const list = [1,2,3,4]
+const list = [1,2,3,4,5,6,7,8]
 </script>
 
 <template>
   <div class='chart-view'>
-    <a-row :gutter="24">
+    <a-row :gutter="[16, 16]">
       <a-col :span="12" v-for='item in list'>
         <ChartItem :key='item'>
           <template #data1>

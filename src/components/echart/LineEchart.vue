@@ -38,9 +38,12 @@ const options = computed((): echarts.EChartsCoreOption => {
 </script>
 
 <template>
-  <div class='line-chart'>
-    <base-echart :option='options' width='100%' height='auto' />
-  </div>
+  <base-echart :option='options' class='line-chart' />
 </template>
 
-<style scoped></style>
+<style scoped>
+.line-chart {
+  width: 100%;
+  height: 100%;
+}
+</style>

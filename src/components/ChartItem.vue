@@ -31,6 +31,7 @@ export default {
       display: none;
     }
     .card-grid{
+      position: relative;
       text-align: center;
       width: 100%;
     }
