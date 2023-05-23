@@ -7,7 +7,7 @@
     <a-form layout="horizontal" :model="formState" @finish="onFinish" @finishFailed="onFinishFailed">
       <a-form-item>
         <a-input v-model:value="formState.username" size="large" placeholder="root or admin">
-          <template #prefix><user-outlined type="user" /></template>
+          <template #prefix><user-outlined /></template>
         </a-input>
       </a-form-item>
       <a-form-item>
@@ -18,7 +18,7 @@
           placeholder="1"
           autocomplete="new-password"
         >
-          <template #prefix><lock-outlined type="user" /></template>
+          <template #prefix><lock-outlined /></template>
         </a-input>
       </a-form-item>
       <a-form-item>

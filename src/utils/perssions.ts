@@ -1,5 +1,5 @@
 import router from "../router";
-import type { IRoute } from "@/api/permission/data";
+import type { IRoute } from "@/api/user/data";
 import type { RouteRecordRaw } from "vue-router";
 
 const loadView = import.meta.glob('../views/*.vue')

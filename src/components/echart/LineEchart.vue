@@ -4,14 +4,13 @@ import { computed } from 'vue'
 import type * as echarts from 'echarts'
 
 export interface LineChartProps {
-  startDate: string, // 起始时间
-  endDate: string // 结束时间
+  monthRange: string[] // 时间
   data: number[] // 数据
 }
 
 const props = withDefaults(defineProps<LineChartProps>(), {
-  monthRange: () => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], // 月份范围
-  data: () => [150, 230, 224, 218, 135, 147, 260] // 数据
+  monthRange: () => [], // 月份范围
+  data: () => [] // 数据
 })
 
 /**

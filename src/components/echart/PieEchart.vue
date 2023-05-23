@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseEchart from "./BaseEchart.vue";
 import { ref } from "vue";
-import * as echarts from "echarts";
+import type * as echarts from "echarts";
 
 let option = ref<echarts.EChartsCoreOption>({
   tooltip: {

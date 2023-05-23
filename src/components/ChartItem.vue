@@ -15,10 +15,8 @@
   </a-card>
 </template>
 
-<script>
-export default {
-  name: 'ChartItem'
-}
+<script setup lang='ts'>
+
 </script>
 
 <style lang='scss' scoped>

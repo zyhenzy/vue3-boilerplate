@@ -3,6 +3,8 @@ import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons-vue';
 import ChartItem from '../../components/ChartItem.vue'
 import LineEchart from '../../components/echart/LineEchart.vue'
 const list = [1,2,3,4,5,6,7,8]
+const monthRange = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] // 月份范围
+const data = [150, 230, 224, 218, 135, 147, 260] // 数据
 </script>
 
 <template>
@@ -55,7 +57,7 @@ const list = [1,2,3,4,5,6,7,8]
           </template>
 
           <template #chart>
-            <line-echart/>
+            <line-echart :month-range='monthRange' :data='data'/>
           </template>
 
         </ChartItem>

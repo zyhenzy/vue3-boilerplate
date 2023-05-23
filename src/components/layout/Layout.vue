@@ -23,7 +23,7 @@ const user = computed(() => userStore.state.user || {});
 
 onMounted(()=>{
   const currentRoute = useRoute();
-  selectedKeys.value = [currentRoute.name]
+  selectedKeys.value = [currentRoute.name as string]
 })
 
 const handleMenuClick = (menu: IRoute) => {
