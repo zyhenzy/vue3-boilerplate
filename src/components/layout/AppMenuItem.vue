@@ -2,7 +2,7 @@
   <template v-if='hasChildren'>
     <a-sub-menu :key='menu.name'>
       <template #icon>
-        <component :is='MENU_ICON_MAP["MailOutlined"]' />
+        <component :is='MENU_ICON_MAP[menu.meta.icon]' />
       </template>
       <template #title>{{ menu.meta.title ? menu.meta.title : menu.name }}</template>
       <app-menu-item :key='subMenu.name' v-for='subMenu in menu.children' :menu='subMenu' />
@@ -10,7 +10,7 @@
   </template>
   <template v-else>
     <a-menu-item @click='handleMenuClick' :key='menu.name'>
-      <component :is='MENU_ICON_MAP["UserOutlined"]' />
+      <component :is='MENU_ICON_MAP[menu.meta.icon]' />
       <span>{{ menu.meta.title ? menu.meta.title : menu.name }}</span>
     </a-menu-item>
   </template>

@@ -1,6 +1,47 @@
-import { UserOutlined, MailOutlined } from '@ant-design/icons-vue'
+import {
+  LineChartOutlined,
+  DotChartOutlined,
+  PieChartOutlined,
+  AimOutlined,
+  SafetyCertificateOutlined,
+  SubnodeOutlined,
+  CloudServerOutlined,
+  PercentageOutlined,
+  ApartmentOutlined,
+  PayCircleOutlined,
+  AlertOutlined,
+  BlockOutlined,
+  UsbOutlined,
+  UsergroupAddOutlined,
+  LikeOutlined,
+  SettingOutlined,
+  UsergroupDeleteOutlined,
+  UserSwitchOutlined,
+  UserOutlined,
+  FieldNumberOutlined,
+  MailOutlined
+} from '@ant-design/icons-vue'
 
 export const MENU_ICON_MAP = {
+  LineChartOutlined,
+  DotChartOutlined,
+  PieChartOutlined,
+  AimOutlined,
+  SafetyCertificateOutlined,
+  SubnodeOutlined,
+  CloudServerOutlined,
+  PercentageOutlined,
+  ApartmentOutlined,
+  PayCircleOutlined,
+  AlertOutlined,
+  BlockOutlined,
+  UsbOutlined,
   UserOutlined,
+  UsergroupAddOutlined,
+  LikeOutlined,
+  UsergroupDeleteOutlined,
+  UserSwitchOutlined,
+  FieldNumberOutlined,
+  SettingOutlined,
   MailOutlined
 }
