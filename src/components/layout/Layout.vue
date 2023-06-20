@@ -6,9 +6,9 @@ import {
   MenuFoldOutlined,
   DownOutlined,
 } from "@ant-design/icons-vue";
+import AppMenuItem from "./AppMenuItem.vue";
 import router from "@/router";
 import { useUserStore } from "@/stores/user";
-import type { IRoute } from '@/api/user/data'
 import { useRoute } from 'vue-router'
 
 const userStore = useUserStore();
@@ -26,10 +26,6 @@ onMounted(()=>{
   selectedKeys.value = [currentRoute.name as string]
 })
 
-const handleMenuClick = (menu: IRoute) => {
-  router.push(menu.path);
-};
-
 const handleLogout = () => {
   userStore.logout();
   router.replace("/login");
@@ -41,14 +37,7 @@ const handleLogout = () => {
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="layout-header_logo" />
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item
-          :key="menu.name"
-          v-for="menu in menuList"
-          @click="handleMenuClick(menu)"
-        >
-          <user-outlined />
-          <span>{{ menu.meta ? menu.meta.name : menu.name }}</span>
-        </a-menu-item>
+        <app-menu-item :key="menu.name" v-for="menu in menuList" :menu="menu"/>
       </a-menu>
     </a-layout-sider>
     <a-layout class='container'>

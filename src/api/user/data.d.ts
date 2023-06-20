@@ -13,8 +13,9 @@ export interface IRoute {
     path:string,
     name:string,
     component:any, // 组件
+    children?:IRoute[]
     meta?:{
-        name?:string, // 菜单名称
+        title?:string, // 菜单名称
         hidden?:boolean // 是否在菜单隐藏
         excludeAuth?:boolean // 不需要登陆即可访问
     }
