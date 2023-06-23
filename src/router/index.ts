@@ -16,7 +16,7 @@ const initRoutes: RouteRecordRaw[] = [
     component: Layout,
     children: [
       ...BaseRoute
-    ]
+    ] as RouteRecordRaw[]
   },
   {
     path: '/home',

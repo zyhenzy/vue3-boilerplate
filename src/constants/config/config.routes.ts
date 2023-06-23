@@ -1,12 +1,12 @@
 import DashboardView from '@/views/dashboard/DashboardView.vue'
 import ChartView from '@/views/chart/ChartView.vue'
 import HeroView from '@/views/HeroView.vue'
-import type { RouteRecordRaw } from 'vue-router'
+import type { IRoute } from '@/api/user/data'
 
 /**
  * 基础路由（左侧菜单）
  */
-export const BaseRoute:RouteRecordRaw[] = [
+export const BaseRoute:IRoute[] = [
   {
     path: '/dashboard',
     name: 'Dashboard',

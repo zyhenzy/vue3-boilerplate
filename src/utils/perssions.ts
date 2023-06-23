@@ -13,7 +13,8 @@ export const addRoutes = (routes: IRoute[]) => {
     const _route: RouteRecordRaw = {
       name: routeObj.name,
       path: routeObj.path,
-      component: loadView[`../views/${routeObj.component}.vue`]
+      component: loadView[`../views/${routeObj.component}.vue`],
+      meta:routeObj.meta
     }
     router.addRoute('layout', _route)
     if (routeObj.children && routeObj.children.length) {

@@ -5,12 +5,13 @@ import LineEchart from '../../components/echart/LineEchart.vue'
 const list = [1,2,3,4,5,6,7,8]
 const monthRange = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] // 月份范围
 const data = [150, 230, 224, 218, 135, 147, 260] // 数据
+
 </script>
 
 <template>
   <div class='chart-view'>
     <a-row :gutter="[16, 16]">
-      <a-col :span="12" v-for='item in list'>
+      <a-col :span="12" v-for='(item,index) in list' :key='index'>
         <ChartItem :key='item'>
           <template #data1>
             <a-statistic
