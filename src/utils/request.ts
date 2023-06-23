@@ -18,7 +18,7 @@ export class Request {
   instance: AxiosInstance;
   // 基础配置，url和超时时间
   baseConfig: AxiosRequestConfig = {
-    baseURL: "/mock",
+    baseURL: "/",
     timeout: 60000,
     headers:{
       "Content-Type":'application/json'

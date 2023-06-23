@@ -1,6 +1,6 @@
 /**
- * @Name: 
- * @Description: 
+ * @Name:
+ * @Description:
  * @Author: ying.zhang_zhang
  * @Date: 2023/4/10 16:48
  * @LastEditors: ying.zhang_zhang
@@ -15,7 +15,7 @@ import type {IHero,IHeroCreate,IHeroUpdate} from "@/api/hero/data";
  * 新增英雄
  */
 export const requestHeroCreate = (params:IHeroCreate)=>{
-  return request.post('/hero',params)
+  return request.post('/mock/hero',params)
 }
 
 /**
@@ -23,21 +23,21 @@ export const requestHeroCreate = (params:IHeroCreate)=>{
  * @param id
  */
 export const requestHeroDelete = (id:string)=>{
-  return request.delete(`/hero/${id}`)
+  return request.delete(`/mock/hero/${id}`)
 }
 
 /**
  * 修改英雄
  */
 export const requestHeroUpdate = (params:IHeroUpdate)=>{
-  return request.put('/hero',params)
+  return request.put('/mock/hero',params)
 }
 
 /**
  * 获取英雄列表
  */
 export const requestHeroList = () => {
-  return request.get<IHero[]>('/heroList')
+  return request.get<IHero[]>('/mock/heroList')
 }
 
 /**
@@ -45,5 +45,5 @@ export const requestHeroList = () => {
  * @param id
  */
 export const requestHeroById = (id:string) => {
-  return request.get<IHero>(`/hero/${id}`)
+  return request.get<IHero>(`/mock/hero/${id}`)
 }
