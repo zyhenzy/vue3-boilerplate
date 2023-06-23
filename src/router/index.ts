@@ -6,10 +6,11 @@ import Layout from '../components/layout/Layout.vue'
 import createRouterGuards from '@/router/guards'
 import { BaseRoute } from '@/constants/config/config.routes'
 
-const REDIRECT_NAME = 'Dashboard' // 重定向路由
+// const REDIRECT_NAME = 'dashboard' // 重定向路由
+const REDIRECT_NAME = 'page1' // 重定向路由
 
 const initRoutes: RouteRecordRaw[] = [
-  { path: '/', redirect: { name: REDIRECT_NAME } },
+  { path: '/', redirect: REDIRECT_NAME },
   {
     path: '/',
     name: 'layout',

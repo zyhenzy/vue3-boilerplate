@@ -1,10 +1,11 @@
-import { computed, reactive } from "vue";
-import { defineStore } from "pinia";
-import { getSession, postLogin } from "@/api/user";
-import { clearToken, setToken } from "@/utils/token";
-import type { IRoute } from "@/api/user/data";
-import { addRoutes } from "@/utils/perssions";
+import { computed, reactive } from 'vue'
+import { defineStore } from 'pinia'
+import { getSession, postLogin } from '@/api/user'
+import { clearToken, setToken } from '@/utils/token'
+import type { IRoute } from '@/api/user/data'
+import { addRoutes } from '@/utils/perssions'
 import { BaseRoute } from '@/constants/config/config.routes'
+import router from '@/router'
 
 export interface UserState {
   user: any,
@@ -12,22 +13,22 @@ export interface UserState {
   asyncRoutes: IRoute[], // 动态路由
 }
 
-export const useUserStore = defineStore("user", () => {
+export const useUserStore = defineStore('user', () => {
   const state = reactive<UserState>({
     user: {},
-    token: "",
-    asyncRoutes: [], // 动态路由
-  });
+    token: '',
+    asyncRoutes: [] // 动态路由
+  })
 
-  const logged = computed(() => !!state.token);
-  const gotRoutes = computed(() => state.asyncRoutes.length > 0);
+  const logged = computed(() => !!state.token)
+  const gotRoutes = computed(() => state.asyncRoutes.length > 0)
 
   /**
    * 静态路由与动态路由组合成菜单
    */
   const getMenus = computed(() => {
-    return [...BaseRoute, ...state.asyncRoutes];
-  });
+    return [...BaseRoute, ...state.asyncRoutes]
+  })
 
   /**
    * 登陆
@@ -39,15 +40,15 @@ export const useUserStore = defineStore("user", () => {
     password: string
   }) {
     try {
-      const response = await postLogin({ username, password });
+      const response = await postLogin({ username, password })
       if (response) {
-        state.token = response.data.token;
-        setToken(state.token);
+        state.token = response.data.token
+        setToken(state.token)
         await fetchSession()
       }
-      return Promise.resolve(true);
+      return Promise.resolve(true)
     } catch (error) {
-      return Promise.reject(false);
+      return Promise.reject(false)
     }
   }
 
@@ -55,10 +56,13 @@ export const useUserStore = defineStore("user", () => {
    * 登出
    */
   async function logout() {
-    state.user = {};
-    state.token = "";
-    state.asyncRoutes = [];
-    clearToken();
+    state.user = {}
+    state.token = ''
+    state.asyncRoutes.forEach(route => {
+      router.removeRoute(route.name)
+    })
+    state.asyncRoutes = []
+    clearToken()
   }
 
   /**
@@ -67,19 +71,19 @@ export const useUserStore = defineStore("user", () => {
    */
   async function fetchSession() {
     try {
-      const response = await getSession();
+      const response = await getSession()
       if (response) {
-        state.user = response.data.user;
-        state.token = response.data.token;
-        state.asyncRoutes = response.data.routes;
-        addRoutes(state.asyncRoutes);
-        setToken(state.token);
+        state.user = response.data.user
+        state.token = response.data.token
+        state.asyncRoutes = response.data.routes
+        addRoutes(state.asyncRoutes)
+        setToken(state.token)
       }
-      return Promise.resolve(true);
+      return Promise.resolve(true)
     } catch (error) {
-      return Promise.reject(false);
+      return Promise.reject(false)
     }
   }
 
-  return { state, logged, gotRoutes, getMenus, login, logout, fetchSession };
-});
+  return { state, logged, gotRoutes, getMenus, login, logout, fetchSession }
+})

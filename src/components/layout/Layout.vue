@@ -3,7 +3,8 @@ import { computed, onMounted, ref } from 'vue'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  DownOutlined
+  DownOutlined,
+  UserOutlined
 } from '@ant-design/icons-vue'
 import AppMenuItem from './AppMenuItem.vue'
 import router from '@/router'
@@ -54,8 +55,9 @@ const handleLogout = () => {
         <div class='vab-avatar'>
           <a-dropdown>
             <span class='ant-dropdown-link'>
-              <a-avatar src='/src/assets/icon/coder.png' />
-              <!--              <a-avatar :src="user.avatar_url" />-->
+              <a-avatar>
+                <template #icon><UserOutlined /></template>
+              </a-avatar>
               {{ user.name }}
               <DownOutlined />
             </span>
