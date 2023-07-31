@@ -12,7 +12,7 @@ export interface IUser {
 export interface IRoute {
   path: string,
   name: string,
-  component: any, // 组件
+  component?: any, // 组件
   children?: IRoute[]
   meta?: {
     title?: string, // 菜单名称

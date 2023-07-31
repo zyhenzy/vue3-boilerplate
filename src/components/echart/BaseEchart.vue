@@ -1,50 +1,69 @@
+<!--
+    @Name: EChart基础组件
+    @Description: EChart基础组件
+    @Author: ying.zhang
+    @Date: 2023/7/31 11:05
+    @LastEditors: ying.zhang
+    @LastEditTime: 2023/7/31 11:05
+    @Url: src/components/echart/BaseEchart.vue
+-->
 <template>
-  <div ref="echartRef" :class="props.class"></div>
+  <div ref='eChartRef' v-resize='handleResize'></div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch } from "vue";
-import * as echarts from "echarts";
-import useResize from "../../utils/hooks/resize";
-import type { Ref } from "vue";
+<script setup lang='ts'>
+import { ref, onMounted, watch } from 'vue'
+import * as echarts from 'echarts'
+import { debounce } from '@/utils/debounce'
 
 interface IProps {
   option: echarts.EChartsCoreOption;
-  class?: string;
 }
 
-const props = withDefaults(defineProps<IProps>(), { class: "base-echart" });
+const props = withDefaults(defineProps<IProps>(), {})
 
-const echartRef = ref<HTMLElement | null>(null);
-let echartInstance: Ref<echarts.ECharts | null> = ref(null);
+const eChartRef = ref<HTMLElement | null>(null)
+let eChartInstance: echarts.ECharts | null = null
 
 onMounted(() => {
-  initChart();
-});
+  initChart()
+})
 
 watch(
   () => props.option,
   () => {
-    initChart();
+    initChart()
   }
-);
+)
 
-onBeforeUnmount(() => {
-  if (!echartInstance.value) {
-    return;
+/**
+ * 浏览器窗口大小变更指令
+ */
+const vResize = {
+  mounted: (el:any,bind:any) => {
+    const cb = bind.value
+    el.$_resizeHandler = debounce(() => {
+      cb();
+    }, 100);
+    window.addEventListener('resize',el.$_resizeHandler)
+  },
+  unmounted:(el:any)=>{
+    if(!el.$_resizeHandler) return
+    window.removeEventListener("resize", el.$_resizeHandler);
+    el.$_resizeHandler=null
   }
-  echartInstance.value!.dispose();
-  echartInstance.value = null;
-});
+}
 
-useResize(echartInstance);
+const handleResize = ()=>{
+  eChartInstance?.resize()
+}
 
 const initChart = () => {
-  echartInstance.value = echarts.init(echartRef.value!, "light", {
-    renderer: "canvas",
-  });
-  echartInstance.value.setOption(props.option);
-};
+  eChartInstance = echarts.init(eChartRef.value!, 'light', {
+    renderer: 'canvas'
+  })
+  eChartInstance.setOption(props.option)
+}
 </script>
 
 <style scoped></style>
