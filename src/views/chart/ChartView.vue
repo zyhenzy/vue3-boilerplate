@@ -58,7 +58,7 @@ const data = [150, 230, 224, 218, 135, 147, 260] // 数据
           </template>
 
           <template #chart>
-            <line-echart :x-data='monthRange' :y-data='data'/>
+            <line-echart :x-data='monthRange' :y-data='data' class='line-echart'/>
           </template>
 
         </ChartItem>
@@ -69,6 +69,9 @@ const data = [150, 230, 224, 218, 135, 147, 260] // 数据
 
 <style lang='scss' scoped>
 .chart-view{
-
+  .line-echart{
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

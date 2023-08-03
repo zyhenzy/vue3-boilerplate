@@ -1,74 +1,60 @@
-<script setup lang="ts">
-import BaseEchart from "./BaseEchart.vue";
-import { ref } from "vue";
-import type * as echarts from "echarts";
+<!--
+    @Name: 柱状图
+    @Description: 柱状图
+    @Author: ying.zhang_zhang
+    @Date: 2023/8/2 17:29
+    @LastEditors: ying.zhang_zhang
+    @LastEditTime: 2023/8/2 17:29
+    @Url: src/components/echart/BarEchart.vue
+-->
+<script setup lang='ts'>
+import BaseEchart from './BaseEchart.vue'
+import { computed } from 'vue'
+import type * as echarts from 'echarts'
 
-let option = ref<echarts.EChartsCoreOption>({
-  xAxis: {
-    type: "category",
-    data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-  },
-  yAxis: {
-    type: "value",
-  },
-  series: [
-    {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: "bar",
-      showBackground: true,
-      backgroundStyle: {
-        color: "rgba(180, 180, 180, 0.2)",
-      },
-    },
-  ],
-});
+export interface BarChartProps {
+  title?: string
+  xData: string[] // X轴
+  yData: number[] // 数据
+}
 
-setTimeout(() => {
-  option.value = {
+const props = withDefaults(defineProps<BarChartProps>(), {
+  title: '',
+  xData: () => [], // X轴
+  yData: () => [] // Y轴
+})
+
+/**
+ * echarts options
+ */
+const options = computed((): echarts.EChartsCoreOption => {
+  return {
     title: {
-      text: "World Population",
-    },
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        type: "shadow",
-      },
-    },
-    legend: {},
-    grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
-      containLabel: true,
+      text: props.title,
+      left: "center",
     },
     xAxis: {
-      type: "value",
-      boundaryGap: [0, 0.01],
+      type: 'category',
+      data: props.xData
     },
     yAxis: {
-      type: "category",
-      data: ["Brazil", "Indonesia", "USA", "India", "China", "World"],
+      type: 'value'
     },
     series: [
       {
-        name: "2011",
-        type: "bar",
-        data: [18203, 23489, 29034, 104970, 131744, 630230],
-      },
-      {
-        name: "2012",
-        type: "bar",
-        data: [19325, 23438, 31000, 121594, 134141, 681807],
-      },
-    ],
-  };
-}, 2000);
+        data: props.yData,
+        type: 'bar'
+      }
+    ]
+  }
+})
+
 </script>
 
 <template>
-  <div class="line-chart">
-    <base-echart :option="option" />
-  </div>
+  <base-echart :option='options' />
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
