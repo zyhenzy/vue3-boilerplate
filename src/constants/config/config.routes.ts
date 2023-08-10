@@ -5,6 +5,11 @@ import type { IRoute } from '@/api/user/data'
 import LineView from '@/views/chart/LineView.vue'
 import BarView from '@/views/chart/BarView.vue'
 import PieView from '@/views/chart/PieView.vue'
+import DataExcelView from '@/views/excel/DataExcelView.vue'
+import DomExcelView from '@/views/excel/DomExcelView.vue'
+import ExcelImportView from '@/views/excel/ExcelImportView.vue'
+import ExcelDownloadView from '@/views/excel/ExcelDownloadView.vue'
+import OfficeExcelView from '@/views/excel/OfficeExcelView.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -56,6 +61,55 @@ export const BaseRoute:IRoute[] = [
         component: ChartView,
         meta: {
           title: '综合',
+        }
+      },
+    ]
+  },
+  {
+    path: '/excel',
+    name: 'ExcelView',
+    meta: {
+      title: 'Excel操作',
+    },
+    children:[
+      {
+        path: '/excelImport',
+        name: 'ExcelImportView',
+        component: ExcelImportView,
+        meta: {
+          title: '导入excel',
+        }
+      },
+      {
+        path: '/excelDownload',
+        name: 'ExcelDownloadView',
+        component: ExcelDownloadView,
+        meta: {
+          title: '下载excel',
+        }
+      },
+      {
+        path: '/dataExcel',
+        name: 'DataExcelView',
+        component: DataExcelView,
+        meta: {
+          title: '数据生成excel',
+        }
+      },
+      {
+        path: '/domExcel',
+        name: 'DomExcelView',
+        component: DomExcelView,
+        meta: {
+          title: '导出DOM为excel',
+        }
+      },
+      {
+        path: '/officeExcel',
+        name: 'OfficeExcelView',
+        component: OfficeExcelView,
+        meta: {
+          title: 'Office Excel/react-file-viewer',
         }
       },
     ]
