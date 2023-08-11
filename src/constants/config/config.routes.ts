@@ -10,6 +10,9 @@ import DomExcelView from '@/views/excel/DomExcelView.vue'
 import ExcelImportView from '@/views/excel/ExcelImportView.vue'
 import ExcelDownloadView from '@/views/excel/ExcelDownloadView.vue'
 import OfficeExcelView from '@/views/excel/OfficeExcelView.vue'
+import OfficeWordView from '@/views/word/OfficeWordView.vue'
+import DocxPreviewView from '@/views/word/DocxPreviewView.vue'
+import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -110,6 +113,39 @@ export const BaseRoute:IRoute[] = [
         component: OfficeExcelView,
         meta: {
           title: 'Office Excel/react-file-viewer',
+        }
+      },
+    ]
+  },
+  {
+    path: '/word',
+    name: 'WordView',
+    meta: {
+      title: 'Word操作',
+    },
+    children:[
+      {
+        path: '/officeWord',
+        name: 'OfficeWordView',
+        component: OfficeWordView,
+        meta: {
+          title: 'Office Word',
+        }
+      },
+      {
+        path: '/docxPreview',
+        name: 'DocxPreviewView',
+        component: DocxPreviewView,
+        meta: {
+          title: 'Docx Preview',
+        }
+      },
+      {
+        path: '/docxTemplater',
+        name: 'DocxTemplaterView',
+        component: DocxTemplaterView,
+        meta: {
+          title: 'word模版填写',
         }
       },
     ]
