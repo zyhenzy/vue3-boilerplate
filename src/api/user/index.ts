@@ -1,4 +1,4 @@
-import request from "@/utils/request";
+import request from "@/utils/request/request";
 import type {ISession} from "@/api/user/data";
 
 /**

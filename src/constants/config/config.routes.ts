@@ -1,6 +1,5 @@
 import DashboardView from '@/views/dashboard/DashboardView.vue'
 import ChartView from '@/views/chart/ChartView.vue'
-import HeroView from '@/views/HeroView.vue'
 import type { IRoute } from '@/api/user/data'
 import LineView from '@/views/chart/LineView.vue'
 import BarView from '@/views/chart/BarView.vue'
@@ -13,6 +12,7 @@ import OfficeExcelView from '@/views/excel/OfficeExcelView.vue'
 import OfficeWordView from '@/views/word/OfficeWordView.vue'
 import DocxPreviewView from '@/views/word/DocxPreviewView.vue'
 import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
+import AxiosView from '@/views/util/AxiosView.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -151,12 +151,20 @@ export const BaseRoute:IRoute[] = [
     ]
   },
   {
-    path: '/hero',
-    name: 'HeroView',
-    component: HeroView,
+    path: '/util',
+    name: 'Util',
     meta: {
-      title: '英雄列表',
-      hidden: false
-    }
-  }
+      title: '工具类分装',
+    },
+    children:[
+      {
+        path: '/request',
+        name: 'AxiosView',
+        component: AxiosView,
+        meta: {
+          title: 'axios封装',
+        }
+      },
+    ]
+  },
 ]

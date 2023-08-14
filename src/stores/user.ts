@@ -42,7 +42,7 @@ export const useUserStore = defineStore('user', () => {
     try {
       const response = await postLogin({ username, password })
       if (response) {
-        state.token = response.data.token
+        state.token = response.data.data.token
         setToken(state.token)
         await fetchSession()
       }
@@ -73,9 +73,9 @@ export const useUserStore = defineStore('user', () => {
     try {
       const response = await getSession()
       if (response) {
-        state.user = response.data.user
-        state.token = response.data.token
-        state.asyncRoutes = response.data.routes
+        state.user = response.data.data.user
+        state.token = response.data.data.token
+        state.asyncRoutes = response.data.data.routes
         addRoutes(state.asyncRoutes)
         setToken(state.token)
       }

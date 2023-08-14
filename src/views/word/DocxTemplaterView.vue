@@ -1,6 +1,6 @@
 <template>
   <div class='docx-templater'>
-    <h1>word模版填入内容</h1>
+    <h1>word模版填入内容（文件位置在：assets/file/template.docx）</h1>
     <input type="file" @change="handleImport" />
     <div ref="docxPreview"></div>
   </div>

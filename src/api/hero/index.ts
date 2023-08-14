@@ -8,7 +8,8 @@
  * @Url: src/api/hero/index.ts
  */
 
-import request from "@/utils/request";
+import request from "@/utils/request/request";
+import requestNoRepeat from "@/utils/request/request-no-repeat";
 import type {IHero,IHeroCreate,IHeroUpdate} from "@/api/hero/data";
 
 /**
@@ -37,7 +38,7 @@ export const requestHeroUpdate = (params:IHeroUpdate)=>{
  * 获取英雄列表
  */
 export const requestHeroList = () => {
-  return request.get<IHero[]>('/mock/heroList')
+  return requestNoRepeat.get<IHero[]>('/mock/heroList')
 }
 
 /**

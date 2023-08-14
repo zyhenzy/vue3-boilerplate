@@ -46,7 +46,12 @@ onMounted(() => {
  */
 const fetchHeroList = async () => {
   const res = await requestHeroList()
-  heroList.value = res.data
+  heroList.value = res.data.data
+}
+
+// 刷新
+const refresh = async ()=>{
+  await fetchHeroList()
 }
 
 /**
@@ -90,6 +95,7 @@ const deleteHero = (app: IHero) => {
 <template>
   <main>
     <a-button @click="openCreateModal">新建应用</a-button>
+    <a-button @click="refresh">刷新</a-button>
     <a-table :dataSource="heroList" :columns="columns">
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'action'">
