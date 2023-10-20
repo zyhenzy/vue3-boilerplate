@@ -13,6 +13,7 @@ import OfficeWordView from '@/views/word/OfficeWordView.vue'
 import DocxPreviewView from '@/views/word/DocxPreviewView.vue'
 import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
 import AxiosView from '@/views/util/AxiosView.vue'
+import IframeView from '@/views/iframe/Index.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -166,5 +167,14 @@ export const BaseRoute:IRoute[] = [
         }
       },
     ]
+  },
+  {
+    path: '/iframe',
+    name: 'Iframe',
+    component: IframeView,
+    meta: {
+      title: 'Iframe交互',
+      hidden: false
+    }
   },
 ]
