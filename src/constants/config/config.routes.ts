@@ -14,6 +14,7 @@ import DocxPreviewView from '@/views/word/DocxPreviewView.vue'
 import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
 import AxiosView from '@/views/util/AxiosView.vue'
 import IframeView from '@/views/iframe/Index.vue'
+import HooksView from '@/views/hooks/Index.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -174,6 +175,15 @@ export const BaseRoute:IRoute[] = [
     component: IframeView,
     meta: {
       title: 'Iframe交互',
+      hidden: false
+    }
+  },
+  {
+    path: '/hooks',
+    name: 'Hooks',
+    component: HooksView,
+    meta: {
+      title: 'hooks使用',
       hidden: false
     }
   },

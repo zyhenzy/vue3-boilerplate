@@ -35,7 +35,7 @@ const handlePass = async () => {
       name: '小明'
     }
   }
-  iframeDom.contentWindow.postMessage(message, iframeSrc)
+  iframeDom?.contentWindow?.postMessage(message, iframeSrc)
 }
 
 
