@@ -15,6 +15,7 @@ import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
 import AxiosView from '@/views/util/AxiosView.vue'
 import IframeView from '@/views/iframe/Index.vue'
 import HooksView from '@/views/hooks/Index.vue'
+import StzbView from '@/views/stzb/StzbView.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -184,6 +185,15 @@ export const BaseRoute:IRoute[] = [
     component: HooksView,
     meta: {
       title: 'hooks使用',
+      hidden: false
+    }
+  },
+  {
+    path: '/stzb',
+    name: 'STZB',
+    component: StzbView,
+    meta: {
+      title: 'STZB',
       hidden: false
     }
   },
