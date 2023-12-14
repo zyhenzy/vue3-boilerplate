@@ -6,8 +6,8 @@ export const COLUMNS = [
   },
   {
     title: '英雄',
-    dataIndex: 'cardHero',
-    key: 'cardHero'
+    dataIndex: 'cardHeroId',
+    key: 'cardHeroId'
   },
   {
     title: '进阶',

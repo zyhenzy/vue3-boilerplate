@@ -5,7 +5,7 @@
     @Date: 2023/4/3 15:46
     @LastEditors: ying.zhang_zhang
     @LastEditTime: 2023/4/3 15:46
-    @Url: src/views/hero/components/HeroModal.vue
+    @Url: src/views/stzb/components/HeroModal.vue
 -->
 <template>
   <a-modal
@@ -101,7 +101,7 @@ const handleOk = async () => {
       await requestHeroCreate(params)
     }
     message.success('保存成功')
-    emit('save-hero')
+    emit('save-stzb')
     close()
   } catch (e) {
     throw new Error()
@@ -119,7 +119,7 @@ const handleCancel = () => {
   close()
 }
 
-const emit = defineEmits(['save-hero'])
+const emit = defineEmits(['save-stzb'])
 
 defineExpose({
   open,

@@ -5,24 +5,38 @@
  * @Date: 2023/4/10 16:48
  * @LastEditors: ying.zhang_zhang
  * @LastEditTime: 2023/4/10 16:48
- * @Url: src/api/hero/index.ts
+ * @Url: src/api/stzb/index.ts
  */
 
-import request from "@/utils/request/request";
-import requestNoRepeat from "@/utils/request/request-no-repeat";
-import type {ISearchCreate,ISearch} from "./data";
+import type { ISearch } from './data'
+import { getUUID } from 'ant-design-vue/es/vc-dialog/util'
+
+const SEARCH_STORE = 'SEARCH_STORE'
 
 /**
  * 新增检索
  */
-export const requestSearchCreate = (params:ISearchCreate)=>{
-  return request.post('/mock/hero',params)
+export const requestSearchCreate = (params: ISearch) => {
+  return new Promise(resolve => {
+    const search = { ...params, id: getUUID() }
+    const store = localStorage.getItem(SEARCH_STORE)
+    if (store) {
+      console.log(store)
+      debugger
+    } else {
+      localStorage.setItem(SEARCH_STORE, JSON.stringify([search]))
+    }
+    resolve(search)
+  })
 }
 
 /**
  * 获取英雄列表
  */
 export const requestSearchList = () => {
-  return requestNoRepeat.get<ISearch[]>('/mock/heroList')
+  return new Promise<ISearch[]>(resolve => {
+    const store: ISearch[] = JSON.parse(localStorage.getItem(SEARCH_STORE) || '')
+    resolve(store ? store : [])
+  })
 }
 
