@@ -1,10 +1,20 @@
 <template>
   <div class='account-view'>
-    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData'>
+    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1300 }' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
-            {{record.price/100}}
+            {{ record.price / 100 }}
+          </span>
+        </template>
+        <template v-if="column.key === 'scoreRate'">
+          <span>
+            {{ record.scoreRate.toFixed(2) }}
+          </span>
+        </template>
+        <template v-if="column.key === 'coreScoreRate'">
+          <span>
+            {{ record.coreScoreRate.toFixed(2) }}
           </span>
         </template>
         <template v-if="column.key === 'tag'">
@@ -22,7 +32,7 @@
           </span>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-button @click='handleToDetail(record)'>查看</a-button>
+          <a-button @click='handleToDetail(record)'>跳转</a-button>
         </template>
       </template>
     </a-table>
@@ -38,21 +48,21 @@ import { useRoute } from 'vue-router'
 
 const tableData = ref<Account[]>([])
 
-onMounted( async () => {
+onMounted(async () => {
   const route = useRoute()
-  if(route.params.id){
+  if (route.params.id) {
     await fetchAccountList(route.params.id)
   }
 })
 
 // 获取检索列表
-const fetchAccountList = async (searchId:string) => {
-  const {data} = await requestSearchDetail(searchId)
+const fetchAccountList = async (searchId: string) => {
+  const { data } = await requestSearchDetail(searchId)
   tableData.value = data.data
 }
 // 查看详情
 const handleToDetail = (account: Account) => {
-  console.log(account)
+  window.open(`https://stzb.cbg.163.com/cgi/mweb/equip/1/${account.game_ordersn}`)
 }
 
 </script>

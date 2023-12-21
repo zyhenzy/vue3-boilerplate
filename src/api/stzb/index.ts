@@ -30,6 +30,15 @@ export const requestSearchCreate = (params: ISearch) => {
   })
 }
 
+
+/**
+ * 保存整个检索列表
+ * @param params
+ */
+export const requestSaveList = (params:ISearch[]) => {
+  localStorage.setItem(SEARCH_STORE, JSON.stringify(params))
+}
+
 /**
  * 删除检索
  * @param id

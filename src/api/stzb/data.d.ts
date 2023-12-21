@@ -22,9 +22,13 @@ export interface ISearch {
     passFairShow:string // 公示期 0：公示期 1：非公示期 2 所有
     cardHeroId:string[] // 英雄ID
     cardAdvanceNum:number // 进阶
+    maxScore:number // 历史最高分
+    maxCoreScore:number // 历史最高综合分
+    remark:string // 备注
 }
 
 // 账号
 export interface Account{
-
+    game_ordersn:string // 主键
+    [key: string]: any;
 }

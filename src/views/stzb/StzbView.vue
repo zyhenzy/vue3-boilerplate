@@ -16,16 +16,21 @@
         <a-button type='primary' html-type='submit'>查询</a-button>
       </a-form-item>
       <a-form-item>
+        <a-button type='primary' @click='HandleSaveAll'>保存</a-button>
+      </a-form-item>
+      <a-form-item>
         <a-button type='primary' @click='handleClearAll'>清空</a-button>
       </a-form-item>
       <a-form-item>
         <a-button type='primary' @click='handleAdd'>新增</a-button>
       </a-form-item>
     </a-form>
-    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData'>
+    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData' :scroll="{ x: 1300 }" bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
-          {{ record.priceMin }} - {{ record.priceMax }}
+          <span>
+            {{ record.priceMin }} - {{ record.priceMax }}
+          </span>
         </template>
         <template v-else-if="column.key === 'cardHeroId'">
           <span>
@@ -35,9 +40,26 @@
           </span>
         </template>
         <template v-else-if="column.key === 'passFairShow'">
+          <span>
             <a-tag v-if="record.passFairShow==='0'" color='blue'>
               公
             </a-tag>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'maxScore'">
+          <span>
+            <a-input-number v-model:value="record.maxScore"/>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'maxCoreScore'">
+          <span>
+            <a-input-number v-model:value="record.maxCoreScore"/>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'remark'">
+          <span>
+            <a-input v-model:value="record.remark"/>
+          </span>
         </template>
         <template v-else-if="column.key === 'action'">
           <span>
@@ -53,14 +75,14 @@
 </template>
 
 <script setup lang='ts'>
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref, unref } from 'vue'
 import type { UnwrapRef } from 'vue'
 import { UserOutlined } from '@ant-design/icons-vue'
 import { COLUMNS } from './stzb.config'
 import { SEARCH_STORE } from '@/constants/store'
 import SearchModal from '@/components/SearchModal.vue'
 import type { ISearch } from '@/api/stzb/data'
-import { requestDeleteSearch, requestPreform, requestSearchList } from '@/api/stzb'
+import { requestDeleteSearch, requestPreform, requestSaveList, requestSearchList } from '@/api/stzb'
 import { heroMap } from '@/constants/stzb/hero'
 import { useRouter } from 'vue-router'
 
@@ -93,6 +115,11 @@ const handleAdd = () => {
 
 const handleClearAll = () => {
   localStorage.removeItem(SEARCH_STORE)
+}
+
+// 保存当前列表
+const HandleSaveAll = ()=>{
+  requestSaveList(unref(tableData))
 }
 
 // 执行任务
