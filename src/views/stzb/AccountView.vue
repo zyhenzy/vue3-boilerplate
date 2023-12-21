@@ -51,7 +51,7 @@ const tableData = ref<Account[]>([])
 onMounted(async () => {
   const route = useRoute()
   if (route.params.id) {
-    await fetchAccountList(route.params.id)
+    await fetchAccountList(route.params.id as string)
   }
 })
 

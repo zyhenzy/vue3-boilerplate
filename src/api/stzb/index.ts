@@ -12,6 +12,7 @@ import type { ISearch } from './data'
 import { v4 as uuidv4 } from 'uuid'
 import { SEARCH_STORE } from '@/constants/store'
 import request from '@/utils/request/request'
+import type { Account } from './data'
 
 /**
  * 新增检索
@@ -74,5 +75,5 @@ export const requestPreform = (params: ISearch) => {
  * @param id
  */
 export const requestSearchDetail = (id: string) => {
-  return request.get(`/api/stzb/${id}`)
+  return request.get<Account[]>(`/api/stzb/${id}`)
 }

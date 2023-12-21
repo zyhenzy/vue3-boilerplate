@@ -20,11 +20,11 @@ export interface ISearch {
     priceMin?:number // 最小金额
     priceMax?:number // 最大金额
     passFairShow:string // 公示期 0：公示期 1：非公示期 2 所有
-    cardHeroId:string[] // 英雄ID
+    cardHeroId:number[] // 英雄ID
     cardAdvanceNum:number // 进阶
-    maxScore:number // 历史最高分
-    maxCoreScore:number // 历史最高综合分
-    remark:string // 备注
+    maxScore?:number // 历史最高分
+    maxCoreScore?:number // 历史最高综合分
+    remark?:string // 备注
 }
 
 // 账号
