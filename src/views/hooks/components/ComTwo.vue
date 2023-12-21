@@ -1,18 +1,23 @@
 <template>
   <div class='com-2'>
-    com-2
+    <button @click='handleAdd'>add2</button>
   </div>
 </template>
 
 <script setup lang='ts'>
 
 import { onMounted, ref } from 'vue'
+import { useTest4 } from '@/views/hooks/hooks/useTest4'
 
-const iframeMessage = ref<string>('')
+const { add } = useTest4()
 
 onMounted(() => {
 
 })
+
+const handleAdd = ()=>{
+  add()
+}
 
 </script>
 

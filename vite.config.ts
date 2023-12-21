@@ -14,6 +14,10 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         '/v1/xxx': {
           target: 'http://192.168.157.182:5708',
           changeOrigin: true,
+        },
+        '/api':{
+          target: 'http://localhost:3000',
+          changeOrigin: true,
         }
       },
     },

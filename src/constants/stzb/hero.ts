@@ -4231,6 +4231,6 @@ export const heroHan = [
 // 英雄value、name键值对
 // @ts-ignore
 export const heroMap = [...heroQun, ...heroWu, ...heroShu, ...heroJin, ...heroWei, ...heroHan].reduce((obj:any, item:any) => {
-  obj[item.value] = item.name
+  obj[item.value] = item.label
   return obj
 }, {})

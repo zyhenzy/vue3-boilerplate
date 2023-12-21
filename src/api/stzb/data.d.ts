@@ -23,3 +23,8 @@ export interface ISearch {
     cardHeroId:string[] // 英雄ID
     cardAdvanceNum:number // 进阶
 }
+
+// 账号
+export interface Account{
+
+}

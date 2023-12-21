@@ -16,6 +16,7 @@ import AxiosView from '@/views/util/AxiosView.vue'
 import IframeView from '@/views/iframe/Index.vue'
 import HooksView from '@/views/hooks/Index.vue'
 import StzbView from '@/views/stzb/StzbView.vue'
+import AccountView from '@/views/stzb/AccountView.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -195,6 +196,15 @@ export const BaseRoute:IRoute[] = [
     meta: {
       title: 'STZB',
       hidden: false
+    }
+  },
+  {
+    path: '/stzb/account',
+    name: 'StzbAccount',
+    component: AccountView,
+    meta: {
+      title: '检索账号',
+      hidden: true
     }
   },
 ]

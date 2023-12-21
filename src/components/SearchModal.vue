@@ -43,7 +43,7 @@
         >
           <a-select-opt-group v-for='(group,index) in options' :label='group.label' :key='index'>
             <a-select-option v-for='hero in group.options' :key='hero.value' :value='hero.value'>
-              {{ hero.name }}
+              {{ hero.label }}
             </a-select-option>
           </a-select-opt-group>
         </a-select>
