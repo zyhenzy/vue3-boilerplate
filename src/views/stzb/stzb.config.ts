@@ -27,7 +27,7 @@ export const COLUMNS = [
 
 export const DETAIL_COLUMNS = [
   {
-    name: '金额',
+    title: '金额',
     dataIndex: 'price',
     key: 'price',
     sorter: {

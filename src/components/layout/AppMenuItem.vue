@@ -1,6 +1,6 @@
 <template>
   <template v-if='hasChildren'>
-    <a-sub-menu :key='menu.name'>
+    <a-sub-menu :key='menu.name' v-if='!menu.meta?.hidden'>
       <template #icon>
         <component v-if='menu.meta?.icon' :is='iconComponents(menu.meta?.icon)' />
       </template>
@@ -9,7 +9,7 @@
     </a-sub-menu>
   </template>
   <template v-else>
-    <a-menu-item @click='handleMenuClick' :key='menu.name'>
+    <a-menu-item @click='handleMenuClick' :key='menu.name' v-if='!menu.meta?.hidden'>
       <component v-if='menu.meta?.icon' :is='iconComponents(menu.meta?.icon)' />
       <span>{{ menu.meta?.title ? menu.meta.title : menu.name }}</span>
     </a-menu-item>

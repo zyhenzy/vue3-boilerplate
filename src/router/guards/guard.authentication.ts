@@ -13,7 +13,7 @@ const setupAuthentication = (router: Router) => {
         if (!store.logged) {
           // 如果没登陆，获取session信息
           await store.fetchSession();
-          next({ path: to.path, replace: true });
+          next({ path: to.fullPath, replace: true });
         } else {
           next();
         }

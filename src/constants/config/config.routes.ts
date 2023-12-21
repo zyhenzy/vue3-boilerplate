@@ -199,8 +199,8 @@ export const BaseRoute:IRoute[] = [
     }
   },
   {
-    path: '/stzb/account',
-    name: 'StzbAccount',
+    path: '/stzb/:id',
+    name: 'Account',
     component: AccountView,
     meta: {
       title: '检索账号',

@@ -103,8 +103,8 @@ const handlePerform = (search: ISearch) => {
 // 查看详情
 const handleToDetail = (search: ISearch) => {
   router.push({
-    name: 'StzbAccount',
-    query: {
+    name: 'Account',
+    params: {
       id: search.id
     }
   })
