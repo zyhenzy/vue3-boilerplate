@@ -77,3 +77,12 @@ export const requestPreform = (params: ISearch) => {
 export const requestSearchDetail = (id: string) => {
   return request.get<Account[]>(`/api/stzb/${id}`)
 }
+
+/**
+ * 设置cookie
+ * @param cookie
+ */
+export const requestSetCookie = (cookie: string) => {
+  const params = {cookie}
+  return request.post(`/api/stzb/setCookie`,params)
+}
