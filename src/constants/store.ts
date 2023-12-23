@@ -28,7 +28,7 @@ const searchStore: ISearch[] = [{
   'priceMin': 15000,
   'priceMax': 20000,
   'passFairShow': '2',
-  'cardHeroId': [100013, 100479, 100030, 100016, 100496, 100023, 100035, 100526,100451,100619,100615,100670],
+  'cardHeroId': [100013, 100479, 100030, 100016, 100496, 100023, 100035, 100526, 100451, 100619, 100615, 100670],
   'cardAdvanceNum': 0,
   'id': 'h4'
 }, {
@@ -67,6 +67,5 @@ const searchStore: ISearch[] = [{
   'cardAdvanceNum': 4,
   'id': 'j2'
 }]
-
 
 
