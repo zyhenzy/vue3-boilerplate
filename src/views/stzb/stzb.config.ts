@@ -24,13 +24,19 @@ export const COLUMNS = [
     width: 60
   },
   {
-    title: '历史最高分',
+    title: '核心最高分',
     dataIndex: 'maxScore',
     key: 'maxScore',
     width: 80
   },
   {
-    title: '历史最高综合分',
+    title: '红度最高分',
+    dataIndex: 'maxRedScore',
+    key: 'maxScore',
+    width: 80
+  },
+  {
+    title: '综合最高分',
     dataIndex: 'maxCoreScore',
     key: 'maxCoreScore',
     width: 80
@@ -91,6 +97,24 @@ export const DETAIL_COLUMNS = [
     width: 60,
     sorter: {
       compare: (a, b) => a.coreScoreRate - b.coreScoreRate
+    }
+  },
+  {
+    title: '高红分数',
+    dataIndex: 'redScore',
+    key: 'coreScore',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.redScore - b.redScore
+    }
+  },
+  {
+    title: '高红性价比',
+    dataIndex: 'redScoreRate',
+    key: 'redScoreRate',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.redScoreRate - b.redScoreRate
     }
   },
   {

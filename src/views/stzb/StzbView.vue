@@ -49,14 +49,20 @@
             </a-tag>
           </span>
         </template>
-        <template v-else-if="column.key === 'maxScore'">
-          <span>
-            <a-input-number v-model:value='record.maxScore' />
-          </span>
-        </template>
+
         <template v-else-if="column.key === 'maxCoreScore'">
           <span>
             <a-input-number v-model:value='record.maxCoreScore' />
+          </span>
+        </template>
+        <template v-else-if="column.key === 'maxRedScore'">
+          <span>
+            <a-input-number v-model:value='record.maxRedScore' />
+          </span>
+        </template>
+        <template v-else-if="column.key === 'maxScore'">
+          <span>
+            <a-input-number v-model:value='record.maxScore' />
           </span>
         </template>
         <template v-else-if="column.key === 'remark'">
