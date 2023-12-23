@@ -9,7 +9,7 @@ export const COLUMNS = [
     title: '英雄',
     dataIndex: 'cardHeroId',
     key: 'cardHeroId',
-    width: 400
+    width: 360
   },
   {
     title: '进阶',
@@ -27,19 +27,19 @@ export const COLUMNS = [
     title: '核心最高分',
     dataIndex: 'maxCoreScore',
     key: 'maxCoreScore',
-    width: 80
+    width: 60
   },
   {
     title: '红度最高分',
     dataIndex: 'maxRedScore',
     key: 'maxRedScore',
-    width: 80
+    width: 60
   },
   {
     title: '综合最高分',
     dataIndex: 'maxScore',
     key: 'maxScore',
-    width: 80
+    width: 60
   },
   {
     title: '备注',
@@ -58,7 +58,7 @@ export const DETAIL_COLUMNS = [
     title: '金额',
     dataIndex: 'price',
     key: 'price',
-    width: 120,
+    width: 90,
     sorter: {
       compare: (a, b) => a.price - b.price
     }
@@ -67,7 +67,6 @@ export const DETAIL_COLUMNS = [
     title: '标签',
     dataIndex: 'tag',
     key: 'tag',
-    width: 280,
     sorter: {
       compare: (a, b) => a.tag.length - b.tag.length
     }
@@ -76,7 +75,7 @@ export const DETAIL_COLUMNS = [
     title: '标签2',
     key: 'skillTag',
     dataIndex: 'skillTag',
-    width: 180,
+    width: 200,
     sorter: {
       compare: (a, b) => a.skillTag.length - b.skillTag.length
     }
@@ -102,7 +101,7 @@ export const DETAIL_COLUMNS = [
   {
     title: '高红分数',
     dataIndex: 'redScore',
-    key: 'coreScore',
+    key: 'redScore',
     width: 60,
     sorter: {
       compare: (a, b) => a.redScore - b.redScore
@@ -146,6 +145,7 @@ export const DETAIL_COLUMNS = [
   },
   {
     title: '操作',
-    key: 'action'
+    key: 'action',
+    width: 60,
   }
 ]

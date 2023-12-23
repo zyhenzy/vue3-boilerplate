@@ -28,7 +28,7 @@
         <a-button type='primary' @click='handleAdd'>新增</a-button>
       </a-form-item>
     </a-form>
-    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData' :scroll='{ x: 1300 }' bordered>
+    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData' :scroll='{ x: 1200 }' size='small' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
@@ -72,9 +72,9 @@
         </template>
         <template v-else-if="column.key === 'action'">
           <span>
-            <a-button @click='handlePerform(record)'>执行</a-button>
-            <a-button @click='handleToDetail(record)'>查看</a-button>
-            <a-button @click='handleDelete(record)'>删除</a-button>
+            <a-button @click='handlePerform(record)' size='small'>执行</a-button>
+            <a-button @click='handleToDetail(record)' size='small'>查看</a-button>
+            <a-button @click='handleDelete(record)' size='small'>删除</a-button>
           </span>
         </template>
       </template>

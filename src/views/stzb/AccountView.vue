@@ -1,10 +1,15 @@
 <template>
   <div class='account-view'>
-    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1300 }' bordered>
+    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1200 }' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
             {{ record.price / 100 }}
+          </span>
+        </template>
+        <template v-if="column.key === 'redScore'">
+          <span>
+            {{ record.redScore.toFixed(0) }}
           </span>
         </template>
         <template v-if="column.key === 'scoreRate'">
@@ -15,6 +20,11 @@
         <template v-if="column.key === 'coreScoreRate'">
           <span>
             {{ record.coreScoreRate.toFixed(2) }}
+          </span>
+        </template>
+        <template v-if="column.key === 'redScoreRate'">
+          <span>
+            {{ record.redScoreRate.toFixed(2) }}
           </span>
         </template>
         <template v-if="column.key === 'tag'">
