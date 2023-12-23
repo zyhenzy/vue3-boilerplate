@@ -25,20 +25,20 @@ export const COLUMNS = [
   },
   {
     title: '核心最高分',
-    dataIndex: 'maxScore',
-    key: 'maxScore',
+    dataIndex: 'maxCoreScore',
+    key: 'maxCoreScore',
     width: 80
   },
   {
     title: '红度最高分',
     dataIndex: 'maxRedScore',
-    key: 'maxScore',
+    key: 'maxRedScore',
     width: 80
   },
   {
     title: '综合最高分',
-    dataIndex: 'maxCoreScore',
-    key: 'maxCoreScore',
+    dataIndex: 'maxScore',
+    key: 'maxScore',
     width: 80
   },
   {
