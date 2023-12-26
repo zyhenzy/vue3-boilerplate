@@ -15,6 +15,7 @@ import DocxTemplaterView from '@/views/word/DocxTemplaterView.vue'
 import AxiosView from '@/views/util/AxiosView.vue'
 import IframeView from '@/views/iframe/Index.vue'
 import HooksView from '@/views/hooks/Index.vue'
+import CanvasView from '@/views/canvas/Index.vue'
 import StzbView from '@/views/stzb/StzbView.vue'
 import AccountView from '@/views/stzb/AccountView.vue'
 
@@ -186,6 +187,15 @@ export const BaseRoute:IRoute[] = [
     component: HooksView,
     meta: {
       title: 'hooks使用',
+      hidden: false
+    }
+  },
+  {
+    path: '/canvas',
+    name: 'Canvas',
+    component: CanvasView,
+    meta: {
+      title: 'canvas使用',
       hidden: false
     }
   },

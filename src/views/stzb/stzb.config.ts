@@ -72,6 +72,14 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '核心标签',
+    dataIndex: 'heTag',
+    key: 'heTag',
+    sorter: {
+      compare: (a, b) => a.heTag.length - b.heTag.length
+    }
+  },
+  {
     title: '标签2',
     key: 'skillTag',
     dataIndex: 'skillTag',

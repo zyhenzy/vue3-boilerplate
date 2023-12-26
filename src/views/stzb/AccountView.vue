@@ -34,6 +34,13 @@
             </a-tag>
           </span>
         </template>
+        <template v-if="column.key === 'heTag'">
+          <span>
+            <a-tag v-for='(tag,index) in record.heTag' :key='index' color='blue'>
+              {{ tag }}
+            </a-tag>
+          </span>
+        </template>
         <template v-if="column.key === 'skillTag'">
           <span>
             <a-tag v-for='(tag,index) in record.skillTag' :key='index' color='red'>
