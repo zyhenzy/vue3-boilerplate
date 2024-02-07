@@ -75,6 +75,7 @@ export const DETAIL_COLUMNS = [
     title: '核心标签',
     dataIndex: 'heTag',
     key: 'heTag',
+    width: 100,
     sorter: {
       compare: (a, b) => a.heTag.length - b.heTag.length
     }

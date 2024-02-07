@@ -74,9 +74,25 @@ onMounted(async () => {
 
 // 获取检索列表
 const fetchAccountList = async (searchId: string) => {
-  const { data } = await requestSearchDetail(searchId)
-  tableData.value = data.data
+  try {
+    const { data } = await requestSearchDetail(searchId)
+    if (data.data && data.data.length > 0) {
+      tableData.value = data.data
+      localStorage.setItem(searchId,JSON.stringify(tableData.value))
+    } else {
+      const list = localStorage.getItem(searchId)
+      if (list) {
+        tableData.value = JSON.parse(list)
+      }
+    }
+  }catch (e){
+    const list = localStorage.getItem(searchId)
+    if (list) {
+      tableData.value = JSON.parse(list)
+    }
+  }
 }
+
 // 查看详情
 const handleToDetail = (account: Account) => {
   window.open(`https://stzb.cbg.163.com/cgi/mweb/equip/1/${account.game_ordersn}`)
