@@ -18,6 +18,8 @@ import HooksView from '@/views/hooks/Index.vue'
 import CanvasView from '@/views/canvas/Index.vue'
 import StzbView from '@/views/stzb/StzbView.vue'
 import AccountView from '@/views/stzb/AccountView.vue'
+import WebGLView from '@/views/webGL/WebGL.vue'
+import ThreeView from '@/views/webGL/Three.vue'
 
 /**
  * 基础路由（左侧菜单）
@@ -216,5 +218,31 @@ export const BaseRoute:IRoute[] = [
       title: '检索账号',
       hidden: true
     }
+  },
+  {
+    path: '/webgl',
+    name: 'webgl',
+    meta: {
+      title: 'WebGL',
+      hidden: false
+    },
+    children:[
+      {
+        path: '/webglMeta',
+        name: 'webglMeta',
+        component: WebGLView,
+        meta: {
+          title: 'webgl meta',
+        }
+      },
+      {
+        path: '/three',
+        name: 'ThreeJS',
+        component: ThreeView,
+        meta: {
+          title: 'Three.js',
+        }
+      },
+    ]
   },
 ]

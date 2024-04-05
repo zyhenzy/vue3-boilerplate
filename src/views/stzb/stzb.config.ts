@@ -24,6 +24,12 @@ export const COLUMNS = [
     width: 60
   },
   {
+    title: '是否试师',
+    dataIndex: 'apprentice',
+    key: 'apprentice',
+    width: 40
+  },
+  {
     title: '核心最高分',
     dataIndex: 'maxCoreScore',
     key: 'maxCoreScore',

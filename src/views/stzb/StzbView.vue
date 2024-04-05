@@ -49,6 +49,14 @@
             </a-tag>
           </span>
         </template>
+        <template v-else-if="column.key === 'apprentice'">
+          <span>
+            <a-tag v-if='record.apprentice' color='red'>
+              试
+            </a-tag>
+          </span>
+        </template>
+
 
         <template v-else-if="column.key === 'maxCoreScore'">
           <span>
@@ -115,7 +123,7 @@ onMounted(async () => {
 
 // 设置cookie
 const handleSetCookie = async () => {
-  let cookie = window.prompt("请输入cookie");
+  let cookie = window.prompt('请输入cookie')
   await requestSetCookie(cookie as string)
 }
 

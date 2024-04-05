@@ -26,6 +26,7 @@ export interface ISearch {
     maxRedScore?:number // 红度最高分
     maxCoreScore?:number // 历史最高综合分
     remark?:string // 备注
+    apprentice?:boolean // 试师
 }
 
 // 账号

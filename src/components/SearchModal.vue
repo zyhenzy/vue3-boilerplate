@@ -61,6 +61,10 @@
         </a-radio-group>
       </a-form-item>
 
+      <a-form-item label='是否试师' name='apprentice'>
+        <a-switch v-model:checked="state.formState.apprentice" name='apprentice' />
+      </a-form-item>
+
     </a-form>
   </a-modal>
 </template>
