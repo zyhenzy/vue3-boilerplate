@@ -27,6 +27,21 @@
             {{ record.redScoreRate.toFixed(2) }}
           </span>
         </template>
+        <template v-if="column.key === 'seasonScore'">
+          <span>
+            {{ record.seasonScore.toFixed(2) }}
+          </span>
+        </template>
+        <template v-if="column.key === 'seasonScoreRate'">
+          <span>
+            {{ record.seasonScoreRate.toFixed(2) }}
+          </span>
+        </template>
+        <template v-if="column.key === 'integrity'">
+          <span>
+            {{ record.integrity }}
+          </span>
+        </template>
         <template v-if="column.key === 'tag'">
           <span>
             <a-tag v-for='(tag,index) in record.tag' :key='index' color='blue'>
@@ -77,6 +92,8 @@ const fetchAccountList = async (searchId: string) => {
   try {
     const { data } = await requestSearchDetail(searchId)
     if (data.data && data.data.length > 0) {
+      console.log(data.data)
+      debugger
       tableData.value = data.data
       localStorage.setItem(searchId,JSON.stringify(tableData.value))
     } else {

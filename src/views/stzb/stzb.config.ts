@@ -96,6 +96,25 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '赛季分数',
+    dataIndex: 'seasonScore',
+    key: 'seasonScore',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonScore - b.seasonScore
+    }
+  },
+  {
+    title: '赛季性价比',
+    dataIndex: 'seasonScoreRate',
+    key: 'seasonScoreRate',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonScoreRate - b.seasonScoreRate
+    }
+  },
+
+  {
     title: '核心分数',
     dataIndex: 'coreScore',
     key: 'coreScore',
@@ -150,6 +169,15 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '完整度',
+    dataIndex: 'integrity',
+    key: 'integrity',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.integrity - b.integrity
+    }
+  },
+  {
     title: '收藏',
     dataIndex: 'collect_num',
     key: 'collect_num',
@@ -166,4 +194,11 @@ export const DETAIL_COLUMNS = [
 ]
 
 // 条件
-const condition = [{"priceMin":200,"priceMax":10000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca0022a"},{"priceMin":10001,"priceMax":20000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca00222a"},{"priceMin":20001,"priceMax":50000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca034022a"},{"priceMin":200,"priceMax":1000,"passFairShow":"2","cardHeroId":[100479],"cardAdvanceNum":0,"apprentice":true,"id":"b547f70a-79f9-4b86-a6a7-b92b953eaddc"},{"priceMin":200,"priceMax":2000,"passFairShow":"2","cardHeroId":[100479,100496],"cardAdvanceNum":0,"apprentice":true,"id":"6da4833a-0507-4d6d-a26c-462c6a994a29"}]
+const condition = [
+  {"priceMin":200,"priceMax":5000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbeytaf96-d44b-4a0b-822f-306b3ca0022a"},
+  {"priceMin":5001,"priceMax":10000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca0022a"},
+  {"priceMin":10001,"priceMax":20000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca00222a"},
+  {"priceMin":20001,"priceMax":50000,"passFairShow":"2","cardHeroId":[100479,100013,100030,100035,100496,100016,100023,100526],"cardAdvanceNum":0,"id":"fbe3af96-d44b-4a0b-822f-306b3ca034022a"},
+  {"priceMin":200,"priceMax":1000,"passFairShow":"2","cardHeroId":[100479],"cardAdvanceNum":0,"apprentice":true,"id":"b547f70a-79f9-4b86-a6a7-b92b953eaddc"},
+  {"priceMin":200,"priceMax":2000,"passFairShow":"2","cardHeroId":[100479,100496],"cardAdvanceNum":0,"apprentice":true,"id":"6da4833a-0507-4d6d-a26c-462c6a994a29"}
+]
