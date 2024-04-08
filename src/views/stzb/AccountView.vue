@@ -7,51 +7,9 @@
             {{ record.price / 100 }}
           </span>
         </template>
-        <template v-if="column.key === 'redScore'">
-          <span>
-            {{ record.redScore.toFixed(0) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'scoreRate'">
-          <span>
-            {{ record.scoreRate.toFixed(2) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'coreScoreRate'">
-          <span>
-            {{ record.coreScoreRate.toFixed(2) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'redScoreRate'">
-          <span>
-            {{ record.redScoreRate.toFixed(2) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'seasonScore'">
-          <span>
-            {{ record.seasonScore.toFixed(2) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'seasonScoreRate'">
-          <span>
-            {{ record.seasonScoreRate.toFixed(2) }}
-          </span>
-        </template>
-        <template v-if="column.key === 'integrity'">
-          <span>
-            {{ record.integrity }}
-          </span>
-        </template>
         <template v-if="column.key === 'tag'">
           <span>
             <a-tag v-for='(tag,index) in record.tag' :key='index' color='blue'>
-              {{ tag }}
-            </a-tag>
-          </span>
-        </template>
-        <template v-if="column.key === 'heTag'">
-          <span>
-            <a-tag v-for='(tag,index) in record.heTag' :key='index' color='blue'>
               {{ tag }}
             </a-tag>
           </span>
@@ -64,11 +22,13 @@
           </span>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-button @click='handleToDetail(record)'>跳转</a-button>
+          <a-button @click='handleGo(record)'>跳转</a-button>
+          <a-button @click='handleShow(record)'>详情</a-button>
         </template>
       </template>
     </a-table>
   </div>
+  <account-modal ref='accountModalRef'/>
 </template>
 
 <script setup lang='ts'>
@@ -77,8 +37,10 @@ import { DETAIL_COLUMNS } from './stzb.config'
 import type { Account } from '@/api/stzb/data'
 import { requestSearchDetail } from '@/api/stzb'
 import { useRoute } from 'vue-router'
+import AccountModal from '../../components/AccountModal.vue'
 
 const tableData = ref<Account[]>([])
+const accountModalRef = ref()
 
 onMounted(async () => {
   const route = useRoute()
@@ -95,14 +57,14 @@ const fetchAccountList = async (searchId: string) => {
       console.log(data.data)
       debugger
       tableData.value = data.data
-      localStorage.setItem(searchId,JSON.stringify(tableData.value))
+      localStorage.setItem(searchId, JSON.stringify(tableData.value))
     } else {
       const list = localStorage.getItem(searchId)
       if (list) {
         tableData.value = JSON.parse(list)
       }
     }
-  }catch (e){
+  } catch (e) {
     const list = localStorage.getItem(searchId)
     if (list) {
       tableData.value = JSON.parse(list)
@@ -111,7 +73,12 @@ const fetchAccountList = async (searchId: string) => {
 }
 
 // 查看详情
-const handleToDetail = (account: Account) => {
+const handleShow = (account: Account) => {
+  accountModalRef.value.open(account)
+}
+
+// 跳转到链接
+const handleGo = (account: Account) => {
   window.open(`https://stzb.cbg.163.com/cgi/mweb/equip/1/${account.game_ordersn}`)
 }
 
