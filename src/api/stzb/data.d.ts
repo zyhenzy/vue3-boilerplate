@@ -23,8 +23,8 @@ export interface ISearch {
     cardHeroId:number[] // 英雄ID
     cardAdvanceNum:number // 进阶
     maxScore?:number // 历史最高分
-    maxRedScore?:number // 红度最高分
-    maxCoreScore?:number // 历史最高综合分
+    maxSeasonScore?:number // 赛季最高分
+    maxCoreScore?:number // 核心最高分
     remark?:string // 备注
     apprentice?:boolean // 试师
 }

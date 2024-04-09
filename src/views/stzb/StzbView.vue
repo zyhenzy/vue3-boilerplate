@@ -58,14 +58,14 @@
         </template>
 
 
+        <template v-else-if="column.key === 'maxSeasonScore'">
+          <span>
+            <a-input-number v-model:value='record.maxSeasonScore' />
+          </span>
+        </template>
         <template v-else-if="column.key === 'maxCoreScore'">
           <span>
             <a-input-number v-model:value='record.maxCoreScore' />
-          </span>
-        </template>
-        <template v-else-if="column.key === 'maxRedScore'">
-          <span>
-            <a-input-number v-model:value='record.maxRedScore' />
           </span>
         </template>
         <template v-else-if="column.key === 'maxScore'">

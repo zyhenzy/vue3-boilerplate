@@ -36,9 +36,9 @@ export const COLUMNS = [
     width: 60
   },
   {
-    title: '红度最高分',
-    dataIndex: 'maxRedScore',
-    key: 'maxRedScore',
+    title: '赛季最高分',
+    dataIndex: 'maxSeasonScore',
+    key: 'maxSeasonScore',
     width: 60
   },
   {
@@ -50,12 +50,13 @@ export const COLUMNS = [
   {
     title: '备注',
     dataIndex: 'remark',
-    key: 'remark'
+    key: 'remark',
+    width: 120
   },
   {
     title: '操作',
     key: 'action',
-    width: 120
+    width: 90
   }
 ]
 
