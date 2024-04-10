@@ -30,15 +30,15 @@ export const COLUMNS = [
     width: 40
   },
   {
-    title: '核心最高分',
-    dataIndex: 'maxCoreScore',
-    key: 'maxCoreScore',
-    width: 60
-  },
-  {
     title: '赛季最高分',
     dataIndex: 'maxSeasonScore',
     key: 'maxSeasonScore',
+    width: 60
+  },
+  {
+    title: '核心最高分',
+    dataIndex: 'maxCoreScore',
+    key: 'maxCoreScore',
     width: 60
   },
   {
