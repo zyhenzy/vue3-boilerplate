@@ -1,6 +1,6 @@
 <template>
   <div class='account-view'>
-    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1200 }' bordered>
+    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1300 }' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>

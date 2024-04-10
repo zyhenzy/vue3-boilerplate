@@ -56,7 +56,7 @@ export const COLUMNS = [
   {
     title: '操作',
     key: 'action',
-    width: 90
+    width: 210
   }
 ]
 
@@ -125,7 +125,7 @@ export const DETAIL_COLUMNS = [
   {
     title: '操作',
     key: 'action',
-    width: 60
+    width: 120
   }
 ]
 
