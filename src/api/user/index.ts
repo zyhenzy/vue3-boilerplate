@@ -1,6 +1,46 @@
 // import request from '@/utils/request/request'
 // import type { ISession } from '@/api/user/data'
-import { permissions2 } from '../../../mock/db/user'
+
+
+export const permissions2 = [
+  {
+    path: '/system',
+    name: 'system',
+    meta: {
+      title: '系统管理',
+      icon: 'SettingOutlined'
+    },
+    children: [
+      {
+        path: '/system/user',
+        name: 'user',
+        component: 'system/User',
+        meta: {
+          title: '用户管理',
+          icon: 'UsergroupDeleteOutlined'
+        }
+      },
+      {
+        path: '/system/role',
+        name: 'role',
+        component: 'system/Role',
+        meta: {
+          title: '角色管理',
+          icon: 'UserSwitchOutlined'
+        }
+      },
+      {
+        path: '/system/permission',
+        name: 'permission',
+        component: 'system/Permission',
+        meta: {
+          title: '权限管理',
+          icon: 'FieldNumberOutlined'
+        }
+      }
+    ]
+  }
+]
 
 /**
  * 获取用户session
