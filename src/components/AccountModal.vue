@@ -40,7 +40,6 @@
       <a-descriptions-item label="荣誉">{{accountDetail.honor}}</a-descriptions-item>
       <a-descriptions-item label="四通">{{accountDetail.sitong}}</a-descriptions-item>
     </a-descriptions>
-<!--    {{ accountDetail }}-->
   </a-modal>
 </template>
 <script setup lang='ts'>
