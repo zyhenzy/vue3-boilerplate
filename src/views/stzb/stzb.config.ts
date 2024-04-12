@@ -87,6 +87,12 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '试师',
+    dataIndex: 'isApprentice',
+    key: 'isApprentice',
+    width: 60
+  },
+  {
     title: '赛季',
     dataIndex: 'seasonScore',
     key: 'seasonScore',

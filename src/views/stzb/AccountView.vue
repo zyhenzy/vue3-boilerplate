@@ -7,6 +7,13 @@
             {{ record.price / 100 }}
           </span>
         </template>
+        <template v-else-if="column.key === 'isApprentice'">
+          <span>
+            <a-tag v-if="record.isApprentice" color='red'>
+              试
+            </a-tag>
+          </span>
+        </template>
         <template v-if="column.key === 'tag'">
           <span>
             <a-tag v-for='(tag,index) in record.tag' :key='index' color='blue'>
