@@ -87,6 +87,14 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '四通',
+    dataIndex: 'sitong',
+    key: 'sitong',
+    sorter: {
+      compare: (a, b) => a.sitong - b.sitong
+    }
+  },
+  {
     title: '试师',
     dataIndex: 'isApprentice',
     key: 'isApprentice',
