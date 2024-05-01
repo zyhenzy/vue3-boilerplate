@@ -7,7 +7,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: 8008,
+    port: 8083,
     proxy: {
       '/v1/xxx': {
         target: 'http://192.168.157.182:5708',

@@ -44,20 +44,19 @@
         </template>
         <template v-else-if="column.key === 'passFairShow'">
           <span>
-            <a-tag v-if="record.passFairShow==='0'" color='blue'>
-              公
-            </a-tag>
+            <a-switch v-model:checked="record.passFairShow" checked-children="公" checkedValue='0' unCheckedValue='2' />
           </span>
         </template>
         <template v-else-if="column.key === 'apprentice'">
           <span>
-            <a-tag v-if='record.apprentice' color='red'>
-              试
-            </a-tag>
+            <a-switch v-model:checked="record.apprentice" checked-children="试" :checkedValue='true' :unCheckedValue='false' />
           </span>
         </template>
-
-
+        <template v-else-if="column.key === 'cardAdvanceNum'">
+          <span>
+            <a-input-number v-model:value='record.cardAdvanceNum' :max='5' />
+          </span>
+        </template>
         <template v-else-if="column.key === 'maxSeasonScore'">
           <span>
             <a-input-number v-model:value='record.maxSeasonScore' />
