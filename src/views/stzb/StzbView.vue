@@ -32,7 +32,9 @@
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
-            {{ record.priceMin }} - {{ record.priceMax }}
+            <a-input-number v-model:value='record.priceMin' :min='200' />
+            -
+            <a-input-number v-model:value='record.priceMax' :min='200' />
           </span>
         </template>
         <template v-else-if="column.key === 'cardHeroId'">

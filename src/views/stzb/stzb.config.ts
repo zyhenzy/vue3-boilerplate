@@ -3,7 +3,7 @@ export const COLUMNS = [
     name: '金额',
     dataIndex: 'price',
     key: 'price',
-    width: 200
+    width: 300
   },
   {
     title: '英雄',

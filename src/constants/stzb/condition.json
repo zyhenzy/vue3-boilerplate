@@ -73,7 +73,7 @@
   },
   {
     "priceMin": 200,
-    "priceMax": 3000,
+    "priceMax": 10000,
     "passFairShow": "2",
     "cardHeroId": [
       100013,
