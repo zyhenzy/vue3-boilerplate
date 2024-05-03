@@ -79,6 +79,14 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '武将标签',
+    dataIndex: 'heroTag',
+    key: 'heroTag',
+    sorter: {
+      compare: (a, b) => a.heroTag.length - b.heroTag.length
+    }
+  },
+  {
     title: '战法标签',
     dataIndex: 'skillTag',
     key: 'skillTag',
