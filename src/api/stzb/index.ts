@@ -18,17 +18,19 @@ import type { Account } from './data'
  * 新增检索
  */
 export const requestSearchCreate = (params: ISearch) => {
-  return new Promise(resolve => {
-    const search = { ...params, id: uuidv4() }
-    const store = localStorage.getItem(SEARCH_STORE)
-    if (store) {
-      const newList = [...JSON.parse(store), search]
-      localStorage.setItem(SEARCH_STORE, JSON.stringify(newList))
-    } else {
-      localStorage.setItem(SEARCH_STORE, JSON.stringify([search]))
-    }
-    resolve(search)
-  })
+  // return new Promise(resolve => {
+  //   const search = { ...params, id: uuidv4() }
+  //   const store = localStorage.getItem(SEARCH_STORE)
+  //   if (store) {
+  //     const newList = [...JSON.parse(store), search]
+  //     localStorage.setItem(SEARCH_STORE, JSON.stringify(newList))
+  //   } else {
+  //     localStorage.setItem(SEARCH_STORE, JSON.stringify([search]))
+  //   }
+  //   resolve(search)
+  // })
+
+  return request.post(`/api/condition`,params)
 }
 
 
@@ -56,10 +58,12 @@ export const requestDeleteSearch = (id: string) => {
  * 获取检索列表
  */
 export const requestSearchList = () => {
-  return new Promise<ISearch[]>(resolve => {
-    const store: ISearch[] = JSON.parse(localStorage.getItem(SEARCH_STORE) || '')
-    resolve(store ? store : [])
-  })
+  // return new Promise<ISearch[]>(resolve => {
+  //   const store: ISearch[] = JSON.parse(localStorage.getItem(SEARCH_STORE) || '')
+  //   resolve(store ? store : [])
+  // })
+
+  return request.get<ISearch[]>('/api/condition')
 }
 
 /**
