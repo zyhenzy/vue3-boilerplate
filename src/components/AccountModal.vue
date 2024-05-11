@@ -26,7 +26,7 @@
       <a-descriptions-item label="S赛季分">{{accountDetail.seasonScore}}</a-descriptions-item>
       <a-descriptions-item label="核心分">{{accountDetail.coreScore}}</a-descriptions-item>
       <a-descriptions-item label="核心武将" :span="3">
-        <a-tag v-for='(hero,index) in accountDetail.showHeroList' :key='index'>{{hero.name}}</a-tag>
+        <a-tag v-for='(hero,index) in accountDetail.showHeroList' :key='index'>{{hero.name}}{{hero.advance_num}}</a-tag>
       </a-descriptions-item>
       <a-descriptions-item label="战法亮点" :span="3">
         <a-tag v-for='(skill,index) in accountDetail.skillTag' :key='index'>{{skill}}</a-tag>

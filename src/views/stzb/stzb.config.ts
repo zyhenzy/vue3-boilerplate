@@ -109,6 +109,15 @@ export const DETAIL_COLUMNS = [
     width: 60
   },
   {
+    title: '赛季核心',
+    dataIndex: 'seasonCoreScore',
+    key: 'seasonCoreScore',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonCoreScore - b.seasonCoreScore
+    }
+  },
+  {
     title: '赛季',
     dataIndex: 'seasonScore',
     key: 'seasonScore',
