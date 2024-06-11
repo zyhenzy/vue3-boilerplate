@@ -71,6 +71,15 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '武器金额',
+    dataIndex: 'weaponPrice',
+    key: 'weaponPrice',
+    width: 120,
+    sorter: {
+      compare: (a, b) => a.weaponPrice - b.weaponPrice
+    }
+  },
+  {
     title: '标签',
     dataIndex: 'tag',
     key: 'tag',

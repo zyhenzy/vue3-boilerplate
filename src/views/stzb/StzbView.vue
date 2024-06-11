@@ -28,7 +28,7 @@
         <a-button type='primary' @click='handleAdd'>新增</a-button>
       </a-form-item>
     </a-form>
-    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData' :scroll='{ x: 1200 }' size='small' bordered>
+    <a-table class='stzb-table' :columns='COLUMNS' :data-source='tableData' :scroll='{ x: 1200 }' size='small'  :pagination="false" bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
