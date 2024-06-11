@@ -20,6 +20,7 @@ import StzbView from '@/views/stzb/StzbView.vue'
 import AccountView from '@/views/stzb/AccountView.vue'
 import WebGLView from '@/views/webGL/WebGL.vue'
 import ThreeView from '@/views/webGL/Three.vue'
+import IframeTest from "@/views/iframe/IframeTest.vue";
 
 /**
  * 基础路由（左侧菜单）
@@ -177,11 +178,28 @@ export const BaseRoute:IRoute[] = [
   {
     path: '/iframe',
     name: 'Iframe',
-    component: IframeView,
     meta: {
-      title: 'Iframe交互',
+      title: 'Iframe',
       hidden: false
-    }
+    },
+    children:[
+      {
+        path: '/iframe/request',
+        name: 'IframeRequest',
+        component: IframeView,
+        meta: {
+          title: 'Iframe交互',
+        }
+      },
+      {
+        path: '/iframe/test',
+        name: 'IframeTest',
+        component: IframeTest,
+        meta: {
+          title: 'Iframe测试',
+        }
+      },
+    ]
   },
   {
     path: '/hooks',

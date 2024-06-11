@@ -69,7 +69,6 @@ const fetchAccountList = async (searchId: string) => {
     const { data } = await requestSearchDetail(searchId)
     if (data.data && data.data.length > 0) {
       console.log(data.data)
-      debugger
       tableData.value = data.data
       localStorage.setItem(searchId, JSON.stringify(tableData.value))
     } else {

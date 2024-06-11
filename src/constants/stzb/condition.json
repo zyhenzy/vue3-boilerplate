@@ -6,7 +6,7 @@
     "cardHeroId": [],
     "cardAdvanceNum": 0,
     "apprentice": true,
-    "id": "95512173-880e32-4533-be5d-e67517e2b55b9",
+    "id": "95512173-880e-4533-be5d-e7517e2b55b9",
     "maxSeasonScore": 44,
     "maxCoreScore": 98,
     "maxScore": 195
@@ -84,7 +84,7 @@
     ],
     "cardAdvanceNum": 4,
     "id": "c78a29b1-aab8-4abc-8277-c0f2b5b8f15b",
-    "remark": "23100"
+    "remark": "16000"
   },
   {
     "priceMin": 200,
@@ -121,6 +121,40 @@
     "id": "bc0f9a9b-8479-4cc3-8e1d-ab174c4978bd"
   },
   {
+    "priceMin": 20000,
+    "priceMax": 30000,
+    "passFairShow": "2",
+    "cardHeroId": [
+      100013,
+      100479,
+      100030,
+      100035,
+      100016,
+      100496,
+      100023,
+      100526
+    ],
+    "cardAdvanceNum": 0,
+    "id": "bc0f9a9b-5173-4cc3-202e-ab174c4990db"
+  },
+  {
+    "priceMin": 30000,
+    "priceMax": 60000,
+    "passFairShow": "2",
+    "cardHeroId": [
+      100013,
+      100479,
+      100030,
+      100035,
+      100016,
+      100496,
+      100023,
+      100526
+    ],
+    "cardAdvanceNum": 0,
+    "id": "bc0f9a9b-5173-4cc3-202e-ab174c9876io"
+  },
+  {
     "priceMin": 200,
     "priceMax": 50000,
     "passFairShow": "2",
@@ -129,5 +163,20 @@
     ],
     "cardAdvanceNum": 4,
     "id": "124654d1-e940-4f78-b1ce-3f177fa2814f"
+  },
+  {
+    "priceMin": 200,
+    "priceMax": 110000,
+    "passFairShow": "2",
+    "cardHeroId": [
+      100013,
+      100030,
+      100035,
+      100016,
+      100023,
+      100526
+    ],
+    "cardAdvanceNum": 3,
+    "id": "a4be16be-686b-41ba-ac8b-6ebc2fa9fdfc"
   }
 ]
