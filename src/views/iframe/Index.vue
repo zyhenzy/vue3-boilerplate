@@ -1,7 +1,7 @@
 <template>
   <div class='iframe-view'>
     <button @click='handlePass'>父传子</button>
-    <iframe id='my-iframe' style='width: 800px;height: 500px' :src='iframeSrc' frameborder='0'></iframe>
+    <iframe id='my-iframe' style='width: 800px;height: 500px' :src='iframeSrc' frameborder='0' @load="handleIframeOnload"></iframe>
     <div>iframe消息：{{ iframeMessage }}</div>
   </div>
 </template>
@@ -25,7 +25,15 @@ onMounted(() => {
   //     iframeMessage.value = e.data.data.name
   //   }
   // }, false)
+  const iframeDom = document.getElementById('my-iframe')
+  iframeDom.onload
+  console.log(666)
 })
+
+const handleIframeOnload = ()=>{
+  console.log('iframe on load----------')
+  handlePass()
+}
 
 /**
  * 父传子
@@ -35,8 +43,7 @@ const handlePass = async () => {
   const message = {
     type: 'postHeader',
     data: {
-      id: '101',
-      name: '小明'
+      userId:'123456'
     }
   }
   iframeDom?.contentWindow?.postMessage(message, iframeSrc)

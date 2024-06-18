@@ -166,7 +166,7 @@
   },
   {
     "priceMin": 200,
-    "priceMax": 110000,
+    "priceMax": 150000,
     "passFairShow": "2",
     "cardHeroId": [
       100013,
@@ -178,5 +178,30 @@
     ],
     "cardAdvanceNum": 3,
     "id": "a4be16be-686b-41ba-ac8b-6ebc2fa9fdfc"
+  },
+  {
+    "priceMin": 200,
+    "priceMax": 150000,
+    "passFairShow": "2",
+    "cardHeroId": [
+      100013,
+      100479,
+      100030,
+      100035,
+      100016,
+      100496,
+      100023,
+      100526
+    ],
+    "cardAdvanceNum": 3,
+    "id": "a4be16be-686b-41ba-ac8b-6ebccccccccc"
+  },
+  {
+    "priceMin": 30000,
+    "priceMax": 50000,
+    "passFairShow": "2",
+    "cardHeroId": [],
+    "cardAdvanceNum": 0,
+    "id": "99cac7e2-8ca1-4593-89cf-93615a0af864"
   }
 ]

@@ -1,10 +1,15 @@
 <template>
   <div class='account-view'>
-    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1300 }' bordered>
+    <a-table class='account-table' :columns='DETAIL_COLUMNS' :data-source='tableData' :scroll='{ x: 1800 }' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
             {{ record.price / 100 }}
+          </span>
+        </template>
+        <template v-if="column.key === 'cardPrice'">
+          <span>
+            {{ record.cardPrice / 100 }}
           </span>
         </template>
         <template v-else-if="column.key === 'isApprentice'">

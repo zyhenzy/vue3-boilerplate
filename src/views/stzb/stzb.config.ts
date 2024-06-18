@@ -71,6 +71,15 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '卡片金额',
+    dataIndex: 'cardPrice',
+    key: 'cardPrice',
+    width: 120,
+    sorter: {
+      compare: (a, b) => a.cardPrice - b.cardPrice
+    }
+  },
+  {
     title: '武器金额',
     dataIndex: 'weaponPrice',
     key: 'weaponPrice',
@@ -118,6 +127,24 @@ export const DETAIL_COLUMNS = [
     width: 60
   },
   {
+    title: '赛季核心',
+    dataIndex: 'seasonCoreScore',
+    key: 'seasonCoreScore',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonCoreScore - b.seasonCoreScore
+    }
+  },
+  {
+    title: '性价比',
+    dataIndex: 'seasonCoreScoreRate',
+    key: 'seasonCoreScoreRate',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonCoreScoreRate - b.seasonCoreScoreRate
+    }
+  },
+  {
     title: '赛季',
     dataIndex: 'seasonScore',
     key: 'seasonScore',
@@ -127,12 +154,30 @@ export const DETAIL_COLUMNS = [
     }
   },
   {
+    title: '性价比',
+    dataIndex: 'seasonScoreRate',
+    key: 'seasonScoreRate',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.seasonScoreRate - b.seasonScoreRate
+    }
+  },
+  {
     title: '核心',
     dataIndex: 'coreScore',
     key: 'coreScore',
     width: 60,
     sorter: {
       compare: (a, b) => a.coreScore - b.coreScore
+    }
+  },
+  {
+    title: '性价比',
+    dataIndex: 'coreScoreRate',
+    key: 'coreScoreRate',
+    width: 60,
+    sorter: {
+      compare: (a, b) => a.coreScoreRate - b.coreScoreRate
     }
   },
   {
