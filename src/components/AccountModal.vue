@@ -15,7 +15,8 @@
     @cancel='handleCancel'
     width='700'
   >
-    <a-descriptions title="User Info" bordered>
+    <a-descriptions title="详细信息" bordered>
+      <a-descriptions-item label="ID">{{accountDetail.game_ordersn}}</a-descriptions-item>
       <a-descriptions-item label="价格">{{(accountDetail.price/100).toFixed(2)}}</a-descriptions-item>
       <a-descriptions-item label="收藏">{{accountDetail.collect_num}}</a-descriptions-item>
       <a-descriptions-item label="综合">{{accountDetail.score}}</a-descriptions-item>

@@ -65,8 +65,8 @@
   },
   {
     "priceMin": 200,
-    "priceMax": 50000,
-    "passFairShow": "0",
+    "priceMax": 100000,
+    "passFairShow": "2",
     "cardHeroId": [
       100479
     ],
@@ -118,7 +118,11 @@
       100526
     ],
     "cardAdvanceNum": 0,
-    "id": "bc0f9a9b-8479-4cc3-8e1d-ab174c4978bd"
+    "id": "bc0f9a9b-8479-4cc3-8e1d-ab174c4978bd",
+    "maxSeasonScore": 19.05,
+    "maxCoreScore": 30.28,
+    "maxScore": 35.35,
+    "remark": "473"
   },
   {
     "priceMin": 20000,
@@ -135,7 +139,10 @@
       100526
     ],
     "cardAdvanceNum": 0,
-    "id": "bc0f9a9b-5173-4cc3-202e-ab174c4990db"
+    "id": "bc0f9a9b-5173-4cc3-202e-ab174c4990db",
+    "maxSeasonScore": 13.16,
+    "maxCoreScore": 19.3,
+    "maxScore": 30
   },
   {
     "priceMin": 30000,
@@ -152,11 +159,15 @@
       100526
     ],
     "cardAdvanceNum": 0,
-    "id": "bc0f9a9b-5173-4cc3-202e-ab174c9876io"
+    "id": "bc0f9a9b-5173-4cc3-202e-ab174c9876io",
+    "maxSeasonScore": 8.5,
+    "maxCoreScore": 15.27,
+    "maxScore": 19.53,
+    "remark": "748"
   },
   {
     "priceMin": 200,
-    "priceMax": 50000,
+    "priceMax": 100000,
     "passFairShow": "2",
     "cardHeroId": [
       100028
@@ -166,7 +177,7 @@
   },
   {
     "priceMin": 200,
-    "priceMax": 150000,
+    "priceMax": 130000,
     "passFairShow": "2",
     "cardHeroId": [
       100013,
@@ -177,7 +188,10 @@
       100526
     ],
     "cardAdvanceNum": 3,
-    "id": "a4be16be-686b-41ba-ac8b-6ebc2fa9fdfc"
+    "id": "a4be16be-686b-41ba-ac8b-6ebc2fa9fdfc",
+    "maxSeasonScore": 6.13,
+    "maxCoreScore": 10.3,
+    "maxScore": 13.88
   },
   {
     "priceMin": 200,
@@ -189,19 +203,32 @@
       100030,
       100035,
       100016,
+      100023,
+      100526
+    ],
+    "cardAdvanceNum": 3,
+    "id": "a4be16be-686b-41ba-ac8b-6ebccccccccc",
+    "maxSeasonScore": 4.42,
+    "maxCoreScore": 7.16,
+    "maxScore": 9.96
+  },
+  {
+    "priceMin": 200,
+    "priceMax": 130000,
+    "passFairShow": "2",
+    "cardHeroId": [
+      100479,
+      100030,
+      100016,
       100496,
       100023,
       100526
     ],
     "cardAdvanceNum": 3,
-    "id": "a4be16be-686b-41ba-ac8b-6ebccccccccc"
-  },
-  {
-    "priceMin": 30000,
-    "priceMax": 50000,
-    "passFairShow": "2",
-    "cardHeroId": [],
-    "cardAdvanceNum": 0,
-    "id": "99cac7e2-8ca1-4593-89cf-93615a0af864"
+    "id": "9be7a392-28b7-4a6f-919a-1a34e6ba285c",
+    "maxSeasonScore": 4.42,
+    "maxCoreScore": 7.36,
+    "maxScore": 10.15,
+    "remark": "911"
   }
 ]
