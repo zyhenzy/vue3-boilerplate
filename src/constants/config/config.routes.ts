@@ -21,6 +21,7 @@ import AccountView from '@/views/stzb/AccountView.vue'
 import WebGLView from '@/views/webGL/WebGL.vue'
 import ThreeView from '@/views/webGL/Three.vue'
 import IframeTest from "@/views/iframe/IframeTest.vue";
+import {ConditionRoute} from "@/modules/condition/route";
 
 /**
  * 基础路由（左侧菜单）
@@ -76,6 +77,7 @@ export const BaseRoute:IRoute[] = [
       },
     ]
   },
+
   // {
   //   path: '/excel',
   //   name: 'ExcelView',
@@ -263,4 +265,5 @@ export const BaseRoute:IRoute[] = [
       },
     ]
   },
+  ...ConditionRoute,
 ]
