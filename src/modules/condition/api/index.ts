@@ -11,11 +11,15 @@
 import request from "@/utils/request/request";
 import requestNoRepeat from "@/utils/request/request-no-repeat";
 import type {ICondition, IConditionCreate, IConditionUpdate} from "./data";
+import {cloneDeep} from "lodash-es";
 
 /**
  * 新增条件
  */
-export const requestConditionCreate = (params: IConditionCreate) => {
+export const requestConditionCreate = (data: IConditionCreate) => {
+    const params = cloneDeep(data)
+    params.priceMin = params.priceMin*100
+    params.priceMax = params.priceMax*100
     return request.post('/api/condition', params)
 }
 
@@ -47,6 +51,15 @@ export const requestConditionList = () => {
  */
 export const requestConditionById = (id: string) => {
     return request.get<ICondition>(`/mock/hero/${id}`)
+}
+
+/**
+ * 设置cookie
+ * @param cookie
+ */
+export const requestSetCookie = (cookie: string) => {
+    const params = {cookie}
+    return request.post(`/api/crawler/setCookie`,params)
 }
 
 export const requestPreform = (params:ICondition)=>{

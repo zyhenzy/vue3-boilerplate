@@ -106,11 +106,10 @@ import {
   requestConditionDelete,
   requestPreform,
   requestConditionList,
-  requestConditionById
+  requestSetCookie
 } from '../api'
 import {heroMap} from '@/constants/stzb/hero'
 import {useRouter} from 'vue-router'
-import {requestSetCookie} from "@/api/stzb";
 import type {ICondition} from "@/modules/condition/api/data";
 
 interface FormState {
