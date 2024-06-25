@@ -13,8 +13,8 @@ export const COLUMNS = [
     },
     {
         title: '进阶',
-        key: 'cardAdvanceNum',
-        dataIndex: 'cardAdvanceNum',
+        key: 'advanceNum',
+        dataIndex: 'advanceNum',
         width: 60
     },
     {

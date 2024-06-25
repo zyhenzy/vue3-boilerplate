@@ -49,9 +49,9 @@
         </a-select>
       </a-form-item>
 
-<!--      <a-form-item label='进阶' name='cardAdvanceNum'>-->
-<!--        <a-slider v-model:value='state.formState.cardAdvanceNum' :min='0' :max='5' />-->
-<!--      </a-form-item>-->
+      <a-form-item label='进阶' name='advanceNum'>
+        <a-slider v-model:value='state.formState.advanceNum' :min='0' :max='5' />
+      </a-form-item>
 
       <a-form-item label='公示期' name='passFairShow'>
         <a-radio-group v-model:value='state.formState.passFairShow' name='passFairShow'>
@@ -61,9 +61,13 @@
         </a-radio-group>
       </a-form-item>
 
-<!--      <a-form-item label='是否试师' name='apprentice'>-->
-<!--        <a-switch v-model:checked="state.formState.apprentice" name='apprentice' />-->
-<!--      </a-form-item>-->
+      <a-form-item label='是否试师' name='apprentice'>
+        <a-switch v-model:checked="state.formState.apprentice" name='apprentice' />
+      </a-form-item>
+
+      <a-form-item label='备注' name='remark'>
+        <a-input v-model:value='state.formState.remark' />
+      </a-form-item>
 
     </a-form>
   </a-modal>
@@ -82,7 +86,9 @@ const initialForm = {
   priceMax: 200,
   passFairShow: '2',
   cardHeroId: [],
-  // cardAdvanceNum: 0
+  advanceNum: 0,
+  apprentice:false,
+  remark:''
 }
 
 const visible = ref<boolean>(false)
