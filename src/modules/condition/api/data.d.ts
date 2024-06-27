@@ -38,3 +38,9 @@ export interface IConditionUpdate {
     apprentice: boolean // 试师
     remark: string // 备注
 }
+
+// 账号
+export interface Account{
+    game_ordersn:string // 主键
+    [key: string]: any;
+}

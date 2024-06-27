@@ -84,7 +84,7 @@
         <template v-else-if="column.key === 'action'">
           <span>
             <a-button @click='handlePerform(record)' size='small'>执行</a-button>
-            <!--            <a-button @click='handleToDetail(record)' size='small'>查看</a-button>-->
+            <a-button @click='handleToDetail(record)' size='small'>查看</a-button>
             <a-button @click='handleDelete(record)' size='small'>删除</a-button>
           </span>
         </template>
@@ -161,14 +161,14 @@ const handlePerform = (search: ICondition) => {
 }
 
 // 查看详情
-// const handleToDetail = (search: ICondition) => {
-//   router.push({
-//     name: 'Account',
-//     params: {
-//       id: search.id
-//     }
-//   })
-// }
+const handleToDetail = (condition: ICondition) => {
+  router.push({
+    name: 'Account',
+    params: {
+      id: condition.id
+    }
+  })
+}
 
 // 删除
 const handleDelete = async (condition: ICondition) => {

@@ -10,7 +10,7 @@
 
 import request from "@/utils/request/request";
 import requestNoRepeat from "@/utils/request/request-no-repeat";
-import type {ICondition, IConditionCreate, IConditionUpdate} from "./data";
+import type {Account, ICondition, IConditionCreate, IConditionUpdate} from "./data";
 import {cloneDeep} from "lodash-es";
 
 /**
@@ -64,4 +64,12 @@ export const requestSetCookie = (cookie: string) => {
 
 export const requestPreform = (params:ICondition)=>{
     return request.post('/api/crawler', params)
+}
+
+/**
+ * 查看详情
+ * @param id
+ */
+export const requestSearchDetail = (id: string) => {
+    return request.get<Account[]>(`/api/account/findByCondition/${id}`)
 }
