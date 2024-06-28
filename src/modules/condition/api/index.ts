@@ -73,3 +73,11 @@ export const requestPreform = (params:ICondition)=>{
 export const requestSearchDetail = (id: string) => {
     return request.get<Account[]>(`/api/account/findByCondition/${id}`)
 }
+
+/**
+ * 修改价格
+ * @param params
+ */
+export const requestUpdatePrice = (params:{id:string,price:number})=>{
+    return request.post('/api/account/updatePrice', params)
+}

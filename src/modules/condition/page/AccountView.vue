@@ -7,6 +7,13 @@
             {{ record.price / 100 }}
           </span>
         </template>
+        <template v-if="column.key === 'intermediaryPrice'">
+          <span>
+            <span v-if="record.intermediaryPrice">
+                  {{ record.intermediaryPrice / 100 }}
+            </span>
+          </span>
+        </template>
         <template v-if="column.key === 'cardPrice'">
           <span>
             {{ record.cardPrice / 100 }}
@@ -48,6 +55,7 @@
         <template v-else-if="column.key === 'action'">
           <a-button @click='handleGo(record)'>跳转</a-button>
           <a-button @click='handleShow(record)'>详情</a-button>
+          <a-button @click='handleUpdatePrice(record)'>改价</a-button>
         </template>
       </template>
     </a-table>
@@ -59,9 +67,10 @@
 import { onMounted, ref } from 'vue'
 import { ACCOUNT_COLUMNS } from '../condition.config'
 import type { Account } from '../api/data'
-import { requestSearchDetail } from '../api/index'
+import {requestSearchDetail, requestUpdatePrice} from '../api/index'
 import { useRoute } from 'vue-router'
 import AccountModal from '../component/AccountModal.vue'
+import {message} from "ant-design-vue";
 
 const tableData = ref<Account[]>([])
 const accountModalRef = ref()
@@ -75,29 +84,27 @@ onMounted(async () => {
 
 // 获取检索列表
 const fetchAccountList = async (searchId: string) => {
-  try {
-    const { data } = await requestSearchDetail(searchId)
-    if (data.data && data.data.length > 0) {
-      console.log(data.data)
-      tableData.value = data.data
-      localStorage.setItem(searchId, JSON.stringify(tableData.value))
-    } else {
-      const list = localStorage.getItem(searchId)
-      if (list) {
-        tableData.value = JSON.parse(list)
-      }
-    }
-  } catch (e) {
-    const list = localStorage.getItem(searchId)
-    if (list) {
-      tableData.value = JSON.parse(list)
-    }
+  const { data } = await requestSearchDetail(searchId)
+  if (data.data && data.data.length > 0) {
+    tableData.value = data.data
   }
 }
 
 // 查看详情
 const handleShow = (account: Account) => {
   accountModalRef.value.open(account)
+}
+
+/**
+ * 改价
+ * @param account
+ */
+const handleUpdatePrice = async (account: Account) => {
+  let priceStr = window.prompt('请输入中介价格')
+  if(priceStr){
+    await requestUpdatePrice({id:account.id,price:Number(priceStr)})
+    message.success('改价成功')
+  }
 }
 
 // 跳转到链接

@@ -71,6 +71,15 @@ export const ACCOUNT_COLUMNS = [
         }
     },
     {
+        title: '中介报价',
+        dataIndex: 'intermediaryPrice',
+        key: 'intermediaryPrice',
+        width: 120,
+        sorter: {
+            compare: (a, b) => a.intermediaryPrice - b.intermediaryPrice
+        }
+    },
+    {
         title: '卡片金额',
         dataIndex: 'cardPrice',
         key: 'cardPrice',
