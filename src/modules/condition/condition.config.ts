@@ -62,6 +62,12 @@ export const COLUMNS = [
 
 export const ACCOUNT_COLUMNS = [
     {
+        title: 'ID',
+        dataIndex: 'id',
+        key: 'id',
+        width: 120,
+    },
+    {
         title: '金额',
         dataIndex: 'price',
         key: 'price',

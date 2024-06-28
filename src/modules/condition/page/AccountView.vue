@@ -74,17 +74,19 @@ import {message} from "ant-design-vue";
 
 const tableData = ref<Account[]>([])
 const accountModalRef = ref()
+let conditionId
 
 onMounted(async () => {
   const route = useRoute()
   if (route.params.id) {
-    await fetchAccountList(route.params.id as string)
+    conditionId = route.params.id as string
+    await fetchAccountList()
   }
 })
 
 // 获取检索列表
-const fetchAccountList = async (searchId: string) => {
-  const { data } = await requestSearchDetail(searchId)
+const fetchAccountList = async () => {
+  const { data } = await requestSearchDetail(conditionId)
   if (data.data && data.data.length > 0) {
     tableData.value = data.data
   }
@@ -103,6 +105,7 @@ const handleUpdatePrice = async (account: Account) => {
   let priceStr = window.prompt('请输入中介价格')
   if(priceStr){
     await requestUpdatePrice({id:account.id,price:Number(priceStr)})
+    await fetchAccountList()
     message.success('改价成功')
   }
 }
