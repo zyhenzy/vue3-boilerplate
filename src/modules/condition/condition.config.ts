@@ -114,38 +114,20 @@ export const ACCOUNT_COLUMNS = [
     },
     {
         title: '四通',
-        dataIndex: 'sitong',
-        key: 'sitong',
+        dataIndex: 'siTong',
+        key: 'siTong',
         sorter: {
-            compare: (a, b) => a.sitong - b.sitong
+            compare: (a, b) => a.siTong - b.siTong
         }
     },
     {
         title: '试师',
-        dataIndex: 'isApprentice',
-        key: 'isApprentice',
+        dataIndex: 'apprentice',
+        key: 'apprentice',
         width: 60
     },
     {
-        title: '赛季核心',
-        dataIndex: 'seasonCoreScore',
-        key: 'seasonCoreScore',
-        width: 60,
-        sorter: {
-            compare: (a, b) => a.seasonCoreScore - b.seasonCoreScore
-        }
-    },
-    {
-        title: '性价比',
-        dataIndex: 'seasonCoreScoreRate',
-        key: 'seasonCoreScoreRate',
-        width: 60,
-        sorter: {
-            compare: (a, b) => a.seasonCoreScoreRate - b.seasonCoreScoreRate
-        }
-    },
-    {
-        title: '赛季',
+        title: 'S赛季',
         dataIndex: 'seasonScore',
         key: 'seasonScore',
         width: 60,
@@ -191,11 +173,11 @@ export const ACCOUNT_COLUMNS = [
     },
     {
         title: '收藏',
-        dataIndex: 'collect_num',
-        key: 'collect_num',
+        dataIndex: 'collectNum',
+        key: 'collectNum',
         width: 60,
         sorter: {
-            compare: (a, b) => a.collect_num - b.collect_num
+            compare: (a, b) => a.collectNum - b.collectNum
         }
     },
     {

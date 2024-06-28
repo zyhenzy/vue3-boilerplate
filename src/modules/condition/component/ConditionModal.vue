@@ -120,7 +120,7 @@ const handleOk = async () => {
     console.log(state.formState)
     await requestConditionCreate(state.formState)
     message.success('保存成功')
-    emit('save-search')
+    emit('save-condition')
     close()
   } catch (e) {
     throw new Error()

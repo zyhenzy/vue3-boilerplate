@@ -41,6 +41,6 @@ export interface IConditionUpdate {
 
 // 账号
 export interface Account{
-    game_ordersn:string // 主键
+    id:string // 主键
     [key: string]: any;
 }

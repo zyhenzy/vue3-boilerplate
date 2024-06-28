@@ -12,9 +12,14 @@
             {{ record.cardPrice / 100 }}
           </span>
         </template>
-        <template v-else-if="column.key === 'isApprentice'">
+        <template v-if="column.key === 'weaponPrice'">
           <span>
-            <a-tag v-if="record.isApprentice" color='red'>
+            {{ record.weaponPrice / 100 }}
+          </span>
+        </template>
+        <template v-else-if="column.key === 'apprentice'">
+          <span>
+            <a-tag v-if="record.apprentice" color='red'>
               试
             </a-tag>
           </span>
@@ -47,7 +52,7 @@
       </template>
     </a-table>
   </div>
-<!--  <account-modal ref='accountModalRef'/>-->
+  <account-modal ref='accountModalRef'/>
 </template>
 
 <script setup lang='ts'>
@@ -56,10 +61,10 @@ import { ACCOUNT_COLUMNS } from '../condition.config'
 import type { Account } from '../api/data'
 import { requestSearchDetail } from '../api/index'
 import { useRoute } from 'vue-router'
-// import AccountModal from '../../components/AccountModal.vue'
+import AccountModal from '../component/AccountModal.vue'
 
 const tableData = ref<Account[]>([])
-// const accountModalRef = ref()
+const accountModalRef = ref()
 
 onMounted(async () => {
   const route = useRoute()
@@ -92,12 +97,12 @@ const fetchAccountList = async (searchId: string) => {
 
 // 查看详情
 const handleShow = (account: Account) => {
-  // accountModalRef.value.open(account)
+  accountModalRef.value.open(account)
 }
 
 // 跳转到链接
 const handleGo = (account: Account) => {
-  window.open(`https://stzb.cbg.163.com/cgi/mweb/equip/1/${account.game_ordersn}`)
+  window.open(`https://stzb.cbg.163.com/cgi/mweb/equip/1/${account.id}`)
 }
 
 </script>

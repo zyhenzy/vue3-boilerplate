@@ -33,9 +33,7 @@
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
-            <a-input-number v-model:value='record.priceMin' :min='200'/>
-            -
-            <a-input-number v-model:value='record.priceMax' :min='200'/>
+            {{record.priceMin / 100}} - {{record.priceMax / 100}}
           </span>
         </template>
         <template v-else-if="column.key === 'cardHeroId'">
@@ -56,9 +54,9 @@
                       :unCheckedValue='false'/>
           </span>
         </template>
-        <template v-else-if="column.key === 'cardAdvanceNum'">
+        <template v-else-if="column.key === 'advanceNum'">
           <span>
-            <a-input-number v-model:value='record.cardAdvanceNum' :max='5'/>
+            <a-tag v-if="record.advanceNum" color="blue">{{record.advanceNum}}</a-tag>
           </span>
         </template>
         <template v-else-if="column.key === 'maxSeasonScore'">
@@ -95,14 +93,13 @@
 </template>
 
 <script setup lang='ts'>
-import {onMounted, reactive, ref, unref} from 'vue'
+import {onMounted, reactive, ref} from 'vue'
 import type {UnwrapRef} from 'vue'
 import {UserOutlined} from '@ant-design/icons-vue'
 import {COLUMNS} from '../condition.config'
 import {SEARCH_STORE} from '@/constants/store'
 import ConditionModal from '../component/ConditionModal.vue'
 import {
-  requestConditionUpdate,
   requestConditionDelete,
   requestPreform,
   requestConditionList,
