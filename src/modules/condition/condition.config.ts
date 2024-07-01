@@ -142,6 +142,18 @@ export const ACCOUNT_COLUMNS = [
         width: 60
     },
     {
+        title: '公示期',
+        dataIndex: 'passFairShow',
+        key: 'passFairShow',
+        width: 60
+    },
+    {
+        title: '状态',
+        dataIndex: 'status',
+        key: 'status',
+        width: 60
+    },
+    {
         title: 'S赛季',
         dataIndex: 'seasonScore',
         key: 'seasonScore',

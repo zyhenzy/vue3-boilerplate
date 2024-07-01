@@ -56,6 +56,7 @@
           <a-button @click='handleGo(record)'>跳转</a-button>
           <a-button @click='handleShow(record)'>详情</a-button>
           <a-button @click='handleUpdatePrice(record)'>改价</a-button>
+          <a-button @click='handleDelete(record)'>删除</a-button>
         </template>
       </template>
     </a-table>
@@ -67,7 +68,7 @@
 import { onMounted, ref } from 'vue'
 import { ACCOUNT_COLUMNS } from '../condition.config'
 import type { Account } from '../api/data'
-import {requestSearchDetail, requestUpdatePrice} from '../api/index'
+import {requestAccountDelete, requestSearchDetail, requestUpdatePrice} from '../api/index'
 import { useRoute } from 'vue-router'
 import AccountModal from '../component/AccountModal.vue'
 import {message} from "ant-design-vue";
@@ -108,6 +109,16 @@ const handleUpdatePrice = async (account: Account) => {
     await fetchAccountList()
     message.success('改价成功')
   }
+}
+
+/**
+ * 删除账号
+ * @param account
+ */
+const handleDelete = async (account: Account) => {
+  await requestAccountDelete(account.id)
+  await fetchAccountList()
+  message.success('删除成功')
 }
 
 // 跳转到链接

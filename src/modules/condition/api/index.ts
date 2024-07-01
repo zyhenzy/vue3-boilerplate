@@ -81,3 +81,11 @@ export const requestSearchDetail = (id: string) => {
 export const requestUpdatePrice = (params:{id:string,price:number})=>{
     return request.post('/api/account/updatePrice', params)
 }
+
+/**
+ * 删除条件
+ * @param id
+ */
+export const requestAccountDelete = (id: string) => {
+    return request.delete(`/api/account/${id}`)
+}
