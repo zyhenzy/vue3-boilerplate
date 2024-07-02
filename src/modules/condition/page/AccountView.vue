@@ -1,6 +1,6 @@
 <template>
   <div class='account-view'>
-    <a-table class='account-table' :columns='ACCOUNT_COLUMNS' :data-source='tableData' :scroll='{ x: 1800 }' bordered>
+    <a-table class='account-table' :columns='ACCOUNT_COLUMNS' :data-source='tableData' :scroll='{ x: 2100 }' bordered>
       <template #bodyCell='{ column, record }'>
         <template v-if="column.key === 'price'">
           <span>
@@ -28,6 +28,20 @@
           <span>
             <a-tag v-if="record.apprentice" color='red'>
               试
+            </a-tag>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'passFairShow'">
+          <span>
+            <a-tag v-if="record.passFairShow==='0'" color='blue'>
+              公
+            </a-tag>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'status'">
+          <span>
+            <a-tag v-if="record.status===6" color='red'>
+              已售
             </a-tag>
           </span>
         </template>

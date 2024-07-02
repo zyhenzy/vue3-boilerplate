@@ -139,20 +139,29 @@ export const ACCOUNT_COLUMNS = [
         title: '试师',
         dataIndex: 'apprentice',
         key: 'apprentice',
-        width: 60
+        width: 60,
+        sorter: {
+            compare: (a, b) => a.apprentice - b.apprentice
+        }
     },
     {
         title: '公示期',
         dataIndex: 'passFairShow',
         key: 'passFairShow',
-        width: 60
+        width: 60,
+        sorter: {
+            compare: (a, b) => a.passFairShow - b.passFairShow
+        }
     },
-    {
-        title: '状态',
-        dataIndex: 'status',
-        key: 'status',
-        width: 60
-    },
+    // {
+    //     title: '状态',
+    //     dataIndex: 'status',
+    //     key: 'status',
+    //     width: 60,
+    //     sorter: {
+    //         compare: (a, b) => a.status - b.status
+    //     }
+    // },
     {
         title: 'S赛季',
         dataIndex: 'seasonScore',
